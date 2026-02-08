@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Variables</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Les variables</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar">
+
+                <!-- navbar submenu -------------------------------------------------------------------------------- -->
+
+                <li class="navbar__element">
+                    <a id="navbar__home" href="../index.html">
+                        <i class="bi bi-house-fill"></i>Accueil
+                    </a>
+                </li>
+
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#affect">Element</a>
+                    </li>
+
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="affect">
+            <h2>Affecter une variable à une valeur</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Les variables sont des boîtes, avec une étiquette (leur nom), et qui contiennent une donnée.
+                        On les crée à l'aide du mot-clé<span class="code"> let </span>, et on les nomme en camelCase.
+                    </p>
+                    <p>Dans les lignes ci-dessous, les textes en clair sont des commentaires.</p>
+                    <ul>
+                        <li>
+                            Pour déclarer une variable sans lui affecter de valeur explicite :
+                            <pre class="js"><code><span class="word">let</span> maVariable1;
+<span class="comment">// la variable a pour valeur undefined</span></code></pre>
+                        </li>
+                        <li>Pour un nombre entier ou décimal :
+                            <pre class="js"><code><span class="word">let</span> maVariable2 = <span class="number">3</span>;
+<span class="comment">// la variable a pour valeur le nombre entier 3</span></code></pre>
+                        </li>
+                        <li>Pour une chaîne de caractères :
+                            <pre class="js"><code><span class="word">let</span> maVariable3 = <span class="text">"mon prénom"</span>;
+<span class="comment">// la variable a pour valeur le texte "mon prénom"</span></code></pre>
+                        </li>
+                        <li>Pour un booléen :
+                            <pre class="js"><code><span class="word">let</span> maVariable4 = <span class="word">true</span>;
+<span class="comment">// la variable a pour valeur true</span></code></pre>
+                        </li>
+                        <li>Pour une valeur volontairement vide :
+                            <pre class="js"><code><span class="word">let</span> maVariable5 = <span class="word">null</span>;
+<span class="comment">// la variable a pour valeur null</span></code></pre>
+                        </li>
+                        <li>
+                            Quand la variable est une constante, on utilise le mot-clé<span class="code"> const</span>,
+                            et on nomme la constante en SCREAMING_SNAKE_CASE. Par exemple:
+                            <pre class="js"><code><span class="word">const</span> MA_CONSTANTE = <span class="number">32</span>;</code></pre>
+                            L'utilisation de<span class="code"> const </span>empêche la réassignation de la variable.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/variables/affect.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="call">
+            <h2>Appeler et afficher une variable</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>On utilise une variable créée plus haut.</p>
+                    <ul>
+                        <li>On peut faire des calculs :
+                            <pre class="js"><code><span class="word">let</span> somme = maVariable1 + maVariable2;
+<span class="comment">// calcul d'une somme, stockage dans une autre variable</span></code></pre>
+                        </li>
+                        <li>On peut afficher un résultat :
+                            <pre class="js"><code>console.<span class="function">log</span>(somme);
+<span class="comment">// on affiche le résultat brut dans la console</span></code></pre>
+                        </li>
+                        <li>On peut utiliser des chaînes de caractères formatées, ou<span class="comment"> template literals </span>(ou<span class="comment"> template strings</span>).
+                            Une<span class="code comment"> template literal </span>est une chaîne de caractères qui
+                            permet d'intégrer des variables ou des expressions.
+                            <pre class="js"><code><span class="word">let</span> montant = <span class="number">250</span>;
+console.<span class="function">log</span>(<span class="text">`Votre compte est crédité de ${montant} €`</span>);</code></pre>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/variables/call.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="main-types">
+            <h2>Principaux types de variables</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Les variables ont un type donné. Chaque type est utilisable d'une façon qui lui est propre.</p>
+                    <ul>
+                        <li>Pour connaître le type d'une variable, on peut taper la commande :
+                            <pre class="js"><code>console.<span class="function">log</span>(<span class="word">typeof</span> maVariable);
+<span class="comment">// on affiche le type de la variable</span></code></pre>
+                        </li>
+                        <li>Un nombre entier ou décimal est de type<span class="comment"> number</span>.</li>
+                        <li>Une chaîne de caractères est de type<span class="comment"> string</span>.</li>
+                        <li>Un booléen est de type<span class="comment"> boolean</span>. Il peut prendre la
+                            valeur<span class="comment"> true </span>ou<span class="comment"> false</span>.</li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/variables/main-types.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="errors">
+            <h2>Erreurs fréquentes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>
+                            Utilisation d'une variable non déclarée :<span class="code error"> ReferenceError</span>.
+                        </li>
+                        <li>
+                            Déclaration d'une constante sans affectation de valeur :<span class="code error"> SyntaxError</span>.
+                        </li>
+                        <li>
+                            Oubli des<span class="comment"> "" </span>dans une chaîne de caractères :
+                            <span class="code error"> SyntaxError </span>ou<span class="code error"> ReferenceError </span>
+                            selon le cas.
+                        </li>
+                        <li>
+                            Oublie des<span class="comment"> ` </span>dans les<span class="comment"> template literals </span>
+                            :<span class="error"> comportement anormal</span>.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="exercises">
+            <h2>Exercices</h2>
+            <ol>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="js"><code>console.log("Hello");
+console.log("JavaScript");</code></pre>
+                            <ul>
+                                <li>message d'erreur</li>
+                                <li><span class="comment">Hello JavaScript</span></li>
+                                <li><span class="comment">Hello<br>
+JavaScript</span></li>
+                                <li><span class="comment">Hello</span>, puis<br>
+<span class="comment">JavaScript</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="js"><code>console.log(Bienvenue en JavaScript");
+console.log(Bien joué !;</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Écrire du code : coder le programme suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <ul>
+                                <li>Créer une variable contenant votre prénom, et une autre contenant votre âge.</li>
+                                <li>
+                                    Afficher un message du type : "<span class="comment">Bonjour Paul, vous avez
+                                    18 ans.</span>" en utilisant les<span class="comment"> template literals</span>.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__video">
+                            <video controls controlsList="nodownload" preload="metadata">
+                                <source src="../assets/variables/ex3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>
