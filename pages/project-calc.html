@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Introduction</title>
+    <title>Calculatrice</title>
 </head>
 <body>
 
@@ -19,7 +19,7 @@
          HEADER
     **************************************************************************************************************** -->
     <header>
-        <h1>Introduction</h1>
+        <h1>Projet : La calculatrice</h1>
 
         <!-- navbar
              ======================================================================================================= -->
@@ -134,16 +134,13 @@
                 <h2>Dans cette page</h2>
                 <ul>
                     <li class="sidebar__element">
-                        <a href="#link">Relier un fichier<span> .js </span>à un fichier<span> .html</span></a>
+                        <a href="#questions">Énoncé</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#launch">Lancer un programme en JavaScript</a>
+                        <a href="#help">Conseils de réalisation</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#errors">Erreurs fréquentes</a>
-                    </li>
-                    <li class="sidebar__element">
-                        <a href="#exercises">Exercices</a>
+                        <a href="#solution">Solution</a>
                     </li>
                 </ul>
             </section>
@@ -157,142 +154,107 @@
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="link">
-            <h2>Relier un fichier<span> .js </span>à un fichier<span> .html</span>.</h2>
+        <section id="questions">
+            <h2>Énoncé</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-                    <p>
-                        Le code JavaScript se place dans un fichier<span> .js</span>.
-                        On l'appelle dans le fichier <span> .html</span>.
-                    </p>
-                    <pre class="html"><code>&lt;head&gt;
-    ...
-    &lt;script src="script.js" defer&gt;&lt;/script&gt;
-&lt;/head&gt;
-<span class="comment">&lt;!-- La balise &lt;script&gt; se place à la fin du &lt;head&gt; --&gt;
-&lt;!-- defer permet de lancer le script à la fin du chargement du fichier html --&gt;</span></code></pre>
-                </div>
+                    <p>Réaliser une calculatrice en JavaScript. Votre programme devra respecter le cahier des charges ci-dessous :</p>
 
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/intro/link.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
+                    <div class="separator"></div>
 
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="launch">
-            <h2>Lancer un programme en JavaScript</h2>
-            <div class="layout">
+                    <ol>
 
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <p>Pour l'instant, on affiche le résultat du programme uniquement dans la console du navigateur. Pour cela,</p>
-                    <ul>
-                        <li>On appelle la console dans le fichier<span> .js</span>.
-                            <pre class="js"><code>console.<span class="function">log</span>(<span class="text">"Bonjour en JavaScript !"</span>);</code></pre>
-                        </li>
-                        <li>Dans le navigateur, on inspecte la page (touche <kbd>F12</kbd>).
-                            <img src="../images/screenshot.png" alt="Capture d'écran de la console du navigateur">
-                            Le contenu du message s'affiche dans la console. Attention, rien n'apparaît sur la page web.
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/intro/launch.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="errors">
-            <h2>Erreurs fréquentes</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <ul>
-                        <li>Oubli de lien du fichier<span> .js </span>au fichier<span> .html</span> : <span class="error">pas d'affichage en console</span>.</li>
-                        <li>Erreur de chemin ou de nom du fichier<span> .js </span> : <span class="error">pas d'affichage en console</span>.</li>
-                        <li>Oubli de<span> defer </span> dans la balise <span> &lt;script&gt;</span> : <span class="error">lancement prématuré du programme</span>.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="exercises">
-            <h2>Exercices</h2>
-            <ol>
-
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
-                    <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <pre class="js"><code>console.log("Hello");
-console.log("JavaScript");</code></pre>
+                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <li>
+                            <h3>Format des données</h3>
                             <ul>
-                                <li>message d'erreur</li>
-                                <li><span class="comment">Hello JavaScript</span></li>
-                                <li><span class="comment">Hello<br>
-JavaScript</span></li>
-                                <li><span class="comment">Hello</span>, puis<br>
-<span class="comment">JavaScript</span></li>
+                                <li>Les données sont stockées dans des variables.</li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
+
+                        <div class="separator"></div>
+
+                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <li>
+                            <h3>Fonctionnement</h3>
+                            <ul>
+                                <li>L'utilisateur saisit un nombre, puis un signe opératoire, puis un autre nombre.</li>
+                                <li>L'ordinateur affiche le calcul et son résultat.</li>
+                                <li>L'utilisateur peut décider de faire autant de calculs qu'il le veut avant de quitter.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="help">
+            <h2>Conseils de réalisation</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>Stocker les saisies utilisateur dans des variables aux noms explicites.</li>
+                        <li>Penser à convertir les nombres en<span class="comment"> number</span>.</li>
+                        <li>Coder une seule opération dans un premier temps (l'addition).</li>
+                        <li>Utiliser une<span class="comment"> template literal </span>pour afficher le résultat proprement.</li>
+                        <li>Envisager les 4 possibilités d'opérations avec une structure conditionnelle.</li>
+                        <li>Ajouter une boucle pour recommencer.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="solution">
+            <h2>Solution</h2>
+
+            <ol class="steps">
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Stockage des saisies utilisateur dans des variables sous forme de nombres.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-calc/solution1.mp4" type="video/mp4">
+                        </video>
+                    </span>
                 </li>
 
-                <div class="separator"></div>
-
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
-                    <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <p>Contenu du fichier<span> index.html </span>:</p>
-                            <pre class="html"><code>&lt;script href="script.js"&gt;</code></pre>
-                            <p>Contenu du fichier<span> script.js </span>:</p>
-                            <pre class="js"><code>console(Bonjour");</code></pre>
-                        </div>
-                    </div>
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Codage de l'addition et affichage du résultat soigné.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-calc/solution2.mp4" type="video/mp4">
+                        </video>
+                    </span>
                 </li>
 
-                <div class="separator"></div>
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Codage des autres opérations.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-calc/solution3.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
 
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Écrire du code : coder le programme suivant.</h3>
-                    <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <p>Afficher "Bonjour tout le monde !" dans la console du navigateur.</p>
-                        </div>
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__video">
-                            <video controls controlsList="nodownload" preload="metadata">
-                                <source src="../assets/intro/ex3.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Ajout d'une boucle.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-calc/solution4.mp4" type="video/mp4">
+                        </video>
+                    </span>
                 </li>
             </ol>
         </section>

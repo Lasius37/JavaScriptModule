@@ -326,7 +326,7 @@ h2 span, h3 span, .sidebar__element a span {
     margin-left: 1.4rem;
 }
 
-.layout__text li span, .layout__text p span, .navbar a span, .layout__text td span, .step span.comment {
+.layout__text li span, .layout__text p span, .layout__text span, .navbar a span, .layout__text td span, .step span.comment {
     font-size: var(--code-size);
     font-family: var(--code-font);
 }
@@ -371,6 +371,12 @@ h2 span, h3 span, .sidebar__element a span {
 
 .layout__text span.error {
     color: var(--error-color);
+}
+
+kbd {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 /* *********************************************************************************************************************

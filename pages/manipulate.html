@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Introduction</title>
+    <title>Manipulation de variables</title>
 </head>
 <body>
 
@@ -19,7 +19,7 @@
          HEADER
     **************************************************************************************************************** -->
     <header>
-        <h1>Introduction</h1>
+        <h1>Manipulation de variables</h1>
 
         <!-- navbar
              ======================================================================================================= -->
@@ -134,10 +134,16 @@
                 <h2>Dans cette page</h2>
                 <ul>
                     <li class="sidebar__element">
-                        <a href="#link">Relier un fichier<span> .js </span>à un fichier<span> .html</span></a>
+                        <a href="#operators">Faire des calculs</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#launch">Lancer un programme en JavaScript</a>
+                        <a href="#user">Récupérer une saisie utilisateur</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#change-type">Convertir le type d'une variable</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#op-type">Utiliser les opérateurs selon le type de variables</a>
                     </li>
                     <li class="sidebar__element">
                         <a href="#errors">Erreurs fréquentes</a>
@@ -157,28 +163,63 @@
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="link">
-            <h2>Relier un fichier<span> .js </span>à un fichier<span> .html</span>.</h2>
+        <section id="operators">
+            <h2>Faire des calculs</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
                     <p>
-                        Le code JavaScript se place dans un fichier<span> .js</span>.
-                        On l'appelle dans le fichier <span> .html</span>.
+                        JavaScript est un excellent calculateur. Il réalise de nombreuses opérations mathématiques
+                        avec les symboles suivants (les priorités sont les mêmes qu'en mathématiques) :
                     </p>
-                    <pre class="html"><code>&lt;head&gt;
-    ...
-    &lt;script src="script.js" defer&gt;&lt;/script&gt;
-&lt;/head&gt;
-<span class="comment">&lt;!-- La balise &lt;script&gt; se place à la fin du &lt;head&gt; --&gt;
-&lt;!-- defer permet de lancer le script à la fin du chargement du fichier html --&gt;</span></code></pre>
+                    <table>
+                        <tr>
+                            <td>addition</td>
+                            <td><span class="comment">+</span></td>
+                            <td><span class="comment">5 + 2</span></td>
+                            <td><span class="comment">7</span></td>
+                        </tr>
+                        <tr>
+                            <td>soustraction</td>
+                            <td><span class="comment">-</span></td>
+                            <td><span class="comment">5 - 2</span></td>
+                            <td><span class="comment">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>multiplication</td>
+                            <td><span class="comment">*</span></td>
+                            <td><span class="comment">5 * 2</span></td>
+                            <td><span class="comment">10</span></td>
+                        </tr>
+                        <tr>
+                            <td>division</td>
+                            <td><span class="comment">/</span></td>
+                            <td><span class="comment">5 / 2</span></td>
+                            <td><span class="comment">2.5</span></td>
+                        </tr>
+                        <tr>
+                            <td>division (reste)</td>
+                            <td><span class="comment">%</span></td>
+                            <td><span class="comment">5 % 2</span></td>
+                            <td><span class="comment">1</span></td>
+                        </tr>
+                        <tr>
+                            <td>puissance</td>
+                            <td><span class="comment">**</span></td>
+                            <td><span class="comment">5 ** 2</span></td>
+                            <td><span class="comment">25</span></td>
+                        </tr>
+
+                    </table>
+                    <pre class="js"><code>console.<span class="function">log</span>(<span class="number">5</span> + <span class="number">2</span>);
+<span class="comment">// JavaScript affiche 7</span></code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__video">
                     <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/intro/link.mp4" type="video/mp4">
+                        <source src="../assets/manipulate/operators.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -186,28 +227,79 @@
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="launch">
-            <h2>Lancer un programme en JavaScript</h2>
+        <section id="user">
+            <h2>Récupérer une saisie utilisateur</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-                    <p>Pour l'instant, on affiche le résultat du programme uniquement dans la console du navigateur. Pour cela,</p>
-                    <ul>
-                        <li>On appelle la console dans le fichier<span> .js</span>.
-                            <pre class="js"><code>console.<span class="function">log</span>(<span class="text">"Bonjour en JavaScript !"</span>);</code></pre>
-                        </li>
-                        <li>Dans le navigateur, on inspecte la page (touche <kbd>F12</kbd>).
-                            <img src="../images/screenshot.png" alt="Capture d'écran de la console du navigateur">
-                            Le contenu du message s'affiche dans la console. Attention, rien n'apparaît sur la page web.
-                        </li>
-                    </ul>
+                    <p>
+                        Pour interagir avec l'utilisateur, il est nécessaire d'enregistrer les données qu'il saisit
+                        dans une variable.
+                    </p>
+                    <pre class="js"><code><span class="word">let</span> nomUtilisateur = <span class="function">prompt</span>(<span class="text">"Votre nom : "</span>, <span class="text">"Toto"</span>);
+<span class="comment">// on peut proposer une valeur par défaut (ici, "Toto")</span></code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__video">
                     <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/intro/launch.mp4" type="video/mp4">
+                        <source src="../assets/manipulate/user.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="change-type">
+            <h2>Convertir le type d'une variable</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        La fonction<span> prompt() </span>permet de récupérer une chaîne de caractères.
+                        Mais on peut avoir besoin de la convertir en nombre.
+                    </p>
+                    <pre class="js"><code><span class="word">let </span>maVariable1 = <span class="function">Number</span>(<span class="text">"37.5"</span>); <span class="comment">&nbsp;// renvoie le nombre 37.5</span>
+<span class="word">let </span>maVariable2 = <span class="function">Boolean</span>(<span class="number">1</span>); <span class="comment">&nbsp;// renvoie le booléen true (pour 0, renvoie false)</span>
+<span class="word">let </span>maVariable3 = <span class="function">String</span>(<span class="number">32</span>); <span class="comment">&nbsp;// renvoie la chaîne de caractères "32"</span>
+<span class="word">let </span>maVariable4 = <span class="function">Boolean</span>(<span class="text">"0"</span>); <span class="comment">&nbsp;// renvoie le booléen true : chaîne non vide</span>
+<span class="word">let </span>maVariable5 = <span class="function">Boolean</span>(<span class="text">""</span>); <span class="comment">&nbsp;// renvoie le booléen false : chaîne vide</span>
+<span class="word">let </span>maVariable6 = <span class="function">String</span>(<span class="word">false</span>); <span class="comment">&nbsp;// renvoie la chaîne de caractères "false"</span>
+<span class="word">let </span>maVariable7 = <span class="function">Number</span>(<span class="word">false</span>); <span class="comment">&nbsp;// renvoie le nombre 0</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/manipulate/change-type.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="op-type">
+            <h2>Utiliser les opérateurs selon le type de variables</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Il est fortement déconseillé de faire des calculs avec des variables de types différents :
+                        certains résultats sont surprenants et peuvent mener à des confusions.
+                    </p>
+                    <pre class="js"><code>console.<span class="function">log</span>(<span class="text">"3"</span> + <span class="number">5</span>); <span class="comment">&nbsp;// renvoie "35" ; conversion en chaîne de caractères</span>
+console.<span class="function">log</span>(<span class="text">"3"</span> - <span class="number">5</span>); <span class="comment">&nbsp;// renvoie -2 ; conversion en nombre</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/manipulate/op-type.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -222,9 +314,18 @@
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
                     <ul>
-                        <li>Oubli de lien du fichier<span> .js </span>au fichier<span> .html</span> : <span class="error">pas d'affichage en console</span>.</li>
-                        <li>Erreur de chemin ou de nom du fichier<span> .js </span> : <span class="error">pas d'affichage en console</span>.</li>
-                        <li>Oubli de<span> defer </span> dans la balise <span> &lt;script&gt;</span> : <span class="error">lancement prématuré du programme</span>.</li>
+                        <li>
+                            Calcul avec des variables de types différents (ex :<span class="comment"> "Coucou" - 3 </span>)
+                            : renvoie<span class="code error"> NaN </span> (not a number).
+                         </li>
+                        <li>
+                            Conversion d'une chaîne de caractères en nombre (ex:<span class="comment"> Number("abc")</span>)
+                            : renvoie<span class="code error"> NaN </span> (not a number).
+                        </li>
+                        <li>
+                            Oubli du fait que<span class="comment"> prompt() </span>renvoie une chaîne de caractères
+                            : renvoie<span class="code error"> NaN </span> (not a number).
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -243,16 +344,10 @@
 
                         <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-                            <pre class="js"><code>console.log("Hello");
-console.log("JavaScript");</code></pre>
-                            <ul>
-                                <li>message d'erreur</li>
-                                <li><span class="comment">Hello JavaScript</span></li>
-                                <li><span class="comment">Hello<br>
-JavaScript</span></li>
-                                <li><span class="comment">Hello</span>, puis<br>
-<span class="comment">JavaScript</span></li>
-                            </ul>
+                            <pre class="js"><code>let a = 10
+let b = 2
+let c = a * b
+console.log(c)</code></pre>
                         </div>
                     </div>
                 </li>
@@ -266,10 +361,13 @@ JavaScript</span></li>
 
                         <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-                            <p>Contenu du fichier<span> index.html </span>:</p>
-                            <pre class="html"><code>&lt;script href="script.js"&gt;</code></pre>
-                            <p>Contenu du fichier<span> script.js </span>:</p>
-                            <pre class="js"><code>console(Bonjour");</code></pre>
+                            <pre class="js"><code>let note1 = 14;
+let note2 = 12;
+let note3 = prompt("Note : ", "0");
+
+let moyenne = (note1 + note2 + note3) / 3;
+
+console.log("La moyenne est de ${moyenne}");</code></pre>
                         </div>
                     </div>
                 </li>
@@ -283,13 +381,19 @@ JavaScript</span></li>
 
                         <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-                            <p>Afficher "Bonjour tout le monde !" dans la console du navigateur.</p>
+                            <ul>
+                                <li>Demander à l'utilisateur de saisir 2 nombres.</li>
+                                <li>Les stocker dans des variables.</li>
+                                <li>Les convertir en nombres.</li>
+                                <li>Calculer la somme de ces deux nombres et stocker le résultat dans une variable.</li>
+                                <li>Afficher le résultat avec le calcul, par exemple : "<span class="comment">5 + 3 = 8</span>".</li>
+                            </ul>
                         </div>
 
                         <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__video">
                             <video controls controlsList="nodownload" preload="metadata">
-                                <source src="../assets/intro/ex3.mp4" type="video/mp4">
+                                <source src="../assets/manipulate/ex3.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
