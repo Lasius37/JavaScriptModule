@@ -1,0 +1,104 @@
+{
+	"home": {
+		"id": "navbar__home",
+		"target": "index",
+		"icon": "bi bi-house-fill",
+		"text": "Accueil"
+	},
+	"menu": [
+		{
+			"title": "Concepts de base",
+			"subMenu": [
+				{
+					"tag": "intro",
+					"text": "Introduction"
+				},
+				{
+					"tag": "variables",
+					"text": "Variables"
+				},
+				{
+					"tag": "manipulate",
+					"text": "Manipulation de variables"
+				},
+				{
+					"tag": "conditions",
+					"text": "Structures conditionnelles"
+				},
+				{
+					"tag": "loops",
+					"text": "Boucles"
+				},
+				{
+					"tag": "project-calc",
+					"text": "Projet : la calculatrice"
+				}
+			]
+		},
+		{"title": "Concepts intermédiaires",
+			"subMenu": [
+				{
+					"tag": "functions",
+					"text": "Fonctions"
+				},
+				{
+					"tag": "arrays",
+					"text": "Tableaux : bases"
+				},
+				{
+					"tag": "objects",
+					"text": "Objets JavaScript"
+				},
+				{
+					"tag": "strings",
+					"text": "Chaînes de caractères"
+				},
+				{
+					"tag": "arrays2",
+					"text": "Tableaux : avancé"
+				},
+				{
+					"tag": "project-grades",
+					"text": "Projet : Le bulletin semestriel"
+				}
+			]
+		},
+		{"title": "Concepts avancés",
+			"subMenu": [
+				{
+					"tag": "dom",
+					"text": "Manipulation du DOM"
+				},
+				{
+					"tag": "events",
+					"text": "Gestion des événements"
+				},
+				{
+					"tag": "data-attributes",
+					"text": "Interactions avec le DOM"
+				},
+				{
+					"tag": "timers",
+					"text": "Timers JavaScript"
+				},
+				{
+					"tag": "forms",
+					"text": "Formulaires dynamiques"
+				},
+				{
+					"tag": "storage",
+					"text": "Stockage des données"
+				},
+				{
+					"tag": "errors",
+					"text": "Gestion des erreurs"
+				},
+				{
+					"tag": "project-stocks",
+					"text": "Projet : La gestion des stocks"
+				}
+			]
+		}
+	]
+}
+
