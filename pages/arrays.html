@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
     <title>Tableaux (bases)</title>
 </head>
+
 <body>
 
     <!-- ***************************************************************************************************************
@@ -24,99 +26,7 @@
         <!-- navbar
              ======================================================================================================= -->
         <nav>
-            <ul class="navbar">
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <a id="navbar__home" href="../index.html">
-                        <i class="bi bi-house-fill"></i>Accueil
-                    </a>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts de base</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/intro.html">Introduction</a>
-                        </li>
-                        <li>
-                            <a href="../pages/variables.html">Variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/manipulate.html">Manipulation de variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/conditions.html">Structures conditionnelles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/loops.html">Boucles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-calc.html">Projet : La calculatrice</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts intermédiaires</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/functions.html">Fonctions</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays.html">Tableaux : bases</a>
-                        </li>
-                        <li>
-                            <a href="../pages/objects.html">Objets JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/strings.html">Chaînes de caractères</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays-2.html">Tableaux : avancé</a>
-                        </li>
-                        <li>
-                            <a href="../pages/data-attributes.html">Données HTML vers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-grades.html">Projet : Le bulletin semestriel</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts avancés</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/dom.html">Manipulation du DOM</a>
-                        </li>
-                        <li>
-                            <a href="../pages/events.html">Gestion des événements</a>
-                        </li>
-                        <li>
-                            <a href="../pages/timers.html">Timers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/server.html">Requêtes serveur</a>
-                        </li>
-                        <li>
-                            <a href="../pages/forms.html">Formulaires dynamiques</a>
-                        </li>
-                        <li>
-                            <a href="../pages/storage.html">Stockage des données</a>
-                        </li>
-                        <li>
-                            <a href="../pages/errors.html">Gestion des erreurs</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-stocks.html">Projet : La gestion des stocks</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul class="navbar"></ul>
         </nav>
     </header>
 
@@ -143,6 +53,9 @@
                         <a href="#update">Modifier un tableau</a>
                     </li>
                     <li class="sidebar__element">
+                        <a href="#browse">Parcourir un tableau</a>
+                    </li>
+                    <li class="sidebar__element">
                         <a href="#errors">Erreurs fréquentes</a>
                     </li>
                     <li class="sidebar__element">
@@ -166,7 +79,25 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Un tableau (<span class="comment">array</span>) permet de stocker plusieurs valeurs dans une
+                        seule variable, en conservant un ordre.
+                    </p>
 
+                    <ul>
+                        <li>Créer un tableau vide :
+                            <pre class="js"><code><span class="word">const</span> notes = [];</code></pre>
+                        </li>
+
+                        <li>Créer un tableau avec des valeurs :
+                            <pre class="js"><code><span class="word">const</span> fruits = [<span class="text">"pomme"</span>, <span class="text">"banane"</span>, <span class="text">"orange"</span>];
+<span class="word">const</span> nombres = [<span class="number">3</span>, <span class="number">7</span>, <span class="number">12</span>];</code></pre>
+                        </li>
+
+                        <li>Tableau “mixte” (déconseillé) :
+                            <pre class="js"><code><span class="word">const</span> data = [<span class="text">"Alice"</span>, <span class="number">12</span>, <span class="word">true</span>];</code></pre>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -186,7 +117,30 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Les éléments d’un tableau sont repérés par un<span class="comment"> index </span>(position),
+                        qui commence toujours à<span class="comment"> 0</span>.
+                    </p>
 
+                    <ul>
+                        <li>Accéder à un élément :
+                            <pre class="js"><code><span class="word">const</span> fruits = [<span class="text">"pomme"</span>, <span class="text">"banane"</span>, <span class="text">"orange"</span>];
+
+console.<span class="function">log</span>(fruits[<span class="number">0</span>]); <span class="comment">&nbsp;// "pomme"</span>
+console.<span class="function">log</span>(fruits[<span class="number">2</span>]); <span class="comment">&nbsp;// "orange"</span></code></pre>
+                        </li>
+
+                        <li>Connaître la taille (nombre d’éléments) :
+                            <pre class="js"><code>console.<span class="function">log</span>(fruits.length); <span class="comment">&nbsp;// 3</span></code></pre>
+                        </li>
+
+                        <li>Accéder au dernier élément :
+                            <pre class="js"><code><span class="word">const</span> dernier = fruits[fruits.length - <span class="number">1</span>];
+console.<span class="function">log</span>(dernier); <span class="comment">&nbsp;// "orange"</span></code></pre>
+                        </li>
+                    </ul>
+
+                    <p>Si l'index qui n’existe pas, JavaScript renvoie<span class="comment"> undefined</span>.</p>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -206,15 +160,95 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        On peut modifier un tableau en changeant un élément, en ajoutant, ou en supprimant des éléments.
+                    </p>
 
+                    <ul>
+                        <li>Modifier une valeur (écriture par index) :
+                            <pre class="js"><code><span class="word">const</span> fruits = [<span class="text">"pomme"</span>, <span class="text">"banane"</span>, <span class="text">"orange"</span>];
+fruits[<span class="number">1</span>] = <span class="text">"fraise"</span>;
+
+console.<span class="function">log</span>(fruits); <span class="comment">&nbsp;// "banane" est remplacé par "fraise"</span></code></pre>
+                        </li>
+
+                        <li>Ajouter à la fin :<span class="comment"> push()</span>
+                            <pre class="js"><code><span class="word">const</span> notes = [<span class="number">10</span>, <span class="number">12</span>];
+notes.<span class="function">push</span>(<span class="number">15</span>);
+
+console.<span class="function">log</span>(notes); <span class="comment">&nbsp;// [10, 12, 15]</span></code></pre>
+                        </li>
+
+                        <li>Retirer le dernier élément :<span class="comment"> pop()</span>
+                            <pre class="js"><code><span class="word">const</span> dernier = notes.<span class="function">pop</span>();
+console.<span class="function">log</span>(dernier); <span class="comment">&nbsp;// 15</span>
+console.<span class="function">log</span>(notes); <span class="comment">&nbsp;// [10, 12]</span></code></pre>
+                        </li>
+
+                        <li>Ajouter au début :<span class="comment"> unshift()</span>
+                            <pre class="js"><code><span class="word">const</span> file = [<span class="text">"B"</span>, <span class="text">"C"</span>];
+file.<span class="function">unshift</span>(<span class="text">"A"</span>); <span class="comment">&nbsp;// ajoute "A" au début</span></code></pre>
+                        </li>
+
+                        <li>Retirer au début :<span class="comment"> shift()</span>
+                            <pre class="js"><code><span class="word">const</span> file = [<span class="text">"A"</span>, <span class="text">"B"</span>, <span class="text">"C"</span>];
+<span class="word">const</span> premier = file.<span class="function">shift</span>(); <span class="comment">&nbsp;// retire "A"</span></code></pre>
+                        </li>
+                    </ul>
+
+                    <p>
+                        Remarque : même si un tableau est déclaré avec<span class="comment"> const</span>, on peut
+                        modifier son contenu. Ce que<span class="comment"> const </span>empêche, c’est de réassigner
+                        la variable à un autre tableau.
+                    </p>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__video">
                     <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/arrays/updade.mp4" type="video/mp4">
+                        <source src="../assets/arrays/update.mp4" type="video/mp4">
                     </video>
                 </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="browse">
+            <h2>Parcourir un tableau</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Parcourir un tableau consiste à accéder successivement à chacun de ses éléments. On utilise
+                        cela pour afficher des valeurs, faire des calculs ou appliquer une condition sur chaque élément.
+                    </p>
+
+                    <ul>
+                        <li>Boucle classique (si besoin des<span class="comment"> index</span>) :
+                            <pre class="js"><code><span class="word">const</span> notes = [<span class="number">8</span>, <span class="number">12</span>, <span class="number">15</span>];
+
+<span class="word">for</span> (<span class="word">let</span> i = <span class="number">0</span>; i < notes.length; i++) {
+    console.<span class="function">log</span>(notes[i]);
+}</code></pre>
+                        </li>
+
+                        <li>Boucle<span class="comment"> for...of </span>(si pas besoin des<span class="comment"> index</span>) :
+                            <pre class="js"><code><span class="word">for</span> (<span class="word">const</span> note <span class="word">of</span> notes) {
+    console.<span class="function">log</span>(note);
+}</code></pre>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/arrays/browse.mp4" type="video/mp4">
+                    </video>
+                </div>
+
             </div>
         </section>
 
@@ -226,7 +260,20 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-
+                    <ul>
+                        <li>
+                            Oublier que les index commencent à<span class="comment"> 0 </span>:<span class="error"> comportement inattendu</span>.
+                        </li>
+                        <li>
+                            Confondre<span class="comment"> length </span>et dernier index :<span class="error"> comportement inattendu</span>.
+                        </li>
+                        <li>
+                            Lire un index inexistant et ne pas gérer<span class="comment"> undefined </span>:<span class="error"> risque d'erreurs multiples</span>.
+                        </li>
+                        <li>
+                            Confondre<span class="comment"> for...in </span>et<span class="comment"> for...of </span>:<span class="error"> parcours incorrect du tableau</span>.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -239,12 +286,14 @@
 
                 <!-- exercise -------------------------------------------------------------------------------------- -->
                 <li>
-                    <h3>Lire du code : </h3>
+                    <h3>Lire du code : que va afficher la console ?</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <pre class="js"><code>const tab = [3, 7, 12];
 
+console.log(tab.length);
+console.log(tab[0]);
+console.log(tab[tab.length - 1]);</code></pre>
                         </div>
                     </div>
                 </li>
@@ -255,10 +304,11 @@
                 <li>
                     <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <pre class="js"><code>const fruits = ["pomme", >"banane"];
 
+console.log(fruits[2].length);
+fruits.push();</code></pre>
                         </div>
                     </div>
                 </li>
@@ -269,13 +319,14 @@
                 <li>
                     <h3>Écrire du code : coder le programme suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-
+                            <ul>
+                                <li>Créer un tableau de notes contenant : 8, 12, 15, 9, 18.</li>
+                                <li>Calculer la moyenne avec une boucle.</li>
+                                <li>Afficher la moyenne dans la console.</li>
+                            </ul>
                         </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__video">
                             <video controls controlsList="nodownload" preload="metadata">
                                 <source src="../assets/arrays/ex3.mp4" type="video/mp4">

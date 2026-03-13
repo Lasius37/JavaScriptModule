@@ -11,112 +11,22 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Données HTML vers JavaScript</title>
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Interactions avec le DOM</title>
 </head>
+
 <body>
 
     <!-- ***************************************************************************************************************
          HEADER
     **************************************************************************************************************** -->
     <header>
-        <h1>Données HTML vers JavaScript</h1>
+        <h1>Interactions avec le DOM</h1>
 
         <!-- navbar
              ======================================================================================================= -->
         <nav>
-            <ul class="navbar">
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <a id="navbar__home" href="../index.html">
-                        <i class="bi bi-house-fill"></i>Accueil
-                    </a>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts de base</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/intro.html">Introduction</a>
-                        </li>
-                        <li>
-                            <a href="../pages/variables.html">Variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/manipulate.html">Manipulation de variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/conditions.html">Structures conditionnelles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/loops.html">Boucles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-calc.html">Projet : La calculatrice</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts intermédiaires</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/functions.html">Fonctions</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays.html">Tableaux : bases</a>
-                        </li>
-                        <li>
-                            <a href="../pages/objects.html">Objets JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/strings.html">Chaînes de caractères</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays-2.html">Tableaux : avancé</a>
-                        </li>
-                        <li>
-                            <a href="../pages/data-attributes.html">Données HTML vers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-grades.html">Projet : Le bulletin semestriel</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts avancés</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/dom.html">Manipulation du DOM</a>
-                        </li>
-                        <li>
-                            <a href="../pages/events.html">Gestion des événements</a>
-                        </li>
-                        <li>
-                            <a href="../pages/timers.html">Timers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/server.html">Requêtes serveur</a>
-                        </li>
-                        <li>
-                            <a href="../pages/forms.html">Formulaires dynamiques</a>
-                        </li>
-                        <li>
-                            <a href="../pages/storage.html">Stockage des données</a>
-                        </li>
-                        <li>
-                            <a href="../pages/errors.html">Gestion des erreurs</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-stocks.html">Projet : La gestion des stocks</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul class="navbar"></ul>
         </nav>
     </header>
 
@@ -143,6 +53,9 @@
                         <a href="#patterns">Relier HTML et JavaScript</a>
                     </li>
                     <li class="sidebar__element">
+                        <a href="#delegation">Délégation d'événements</a>
+                    </li>
+                    <li class="sidebar__element">
                         <a href="#errors">Erreurs fréquentes</a>
                     </li>
                     <li class="sidebar__element">
@@ -158,25 +71,43 @@
     **************************************************************************************************************** -->
     <main>
 
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="data">
-            <h2>Récupérer des données HTML</h2>
-            <div class="layout">
+    <!-- content section
+         ======================================================================================================= -->
+    <section id="data">
+        <h2>Récupérer des données HTML</h2>
+        <div class="layout">
 
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
+            <div class="layout__text">
+                <p>
+                    Les<span class="comment"> data-attributes </span>permettent de stocker des informations directement
+                    dans le HTML, sur un élément.Ces données ne sont pas visibles par l’utilisateur, mais peuvent être
+                    lues en JavaScript. Ils sont écrits sous la forme<span class="comment"> data-nom </span>dans le HTML.
+                </p>
 
-                </div>
+                <pre class="html"><code>&lt;button data-id="12" data-type="add"&gt;
+    Ajouter
+&lt;/button&gt;</code></pre>
 
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/objects/data.mp4" type="video/mp4">
-                    </video>
-                </div>
+                <ul>
+                    <li>Le HTML décrit l’interface.</li>
+                    <li>Les<span class="comment"> data-* </span>transportent l’information.</li>
+                    <li>JavaScript lit ces données pour décider quoi faire.</li>
+                </ul>
+
+                <p>
+                    C’est un moyen propre de relier interface et logique, sans mélanger JavaScript directement dans le HTML.
+                </p>
             </div>
-        </section>
+
+            <div class="layout__video">
+                <video controls controlsList="nodownload" preload="metadata">
+                    <source src="../assets/objects/data.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+    </section>
+
 
         <!-- content section
              ======================================================================================================= -->
@@ -186,7 +117,22 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Les<span class="comment"> data-attributes </span> permettent de stocker des informations dans le
+                        HTML, directement sur un élément, sans les afficher. En JavaScript, on y accède
+                        via<span class="comment"> dataset</span>. Règle de nommage
+                        :<span class="comment"> data-user-id </span>
+                        devient<span class="comment"> dataset.userId </span>(kebab-case → camelCase).
+                    </p>
 
+                    <pre class="html"><code>&lt;button id="btn" data-user-id="42" data-role="admin"&gt;
+    Voir profil
+&lt;/button&gt;</code></pre>
+
+                    <pre class="js"><code><span class="word">const</span> btn = document.<span class="function">querySelector</span>(<span class="text">"#btn"</span>);
+
+console.<span class="function">log</span>(btn.dataset.userId); <span class="comment">&nbsp;// "42"</span>
+console.<span class="function">log</span>(btn.dataset.role); <span class="comment">&nbsp;// "admin"</span></code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -206,7 +152,31 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Le modèle le plus courant : on récupère un groupe d’éléments (par exemple une liste de boutons),
+                        et on utilise leur<span class="comment"> data-attributes </span>pour savoir quoi faire quand
+                        l’utilisateur clique.
+                    </p>
 
+                    <pre class="html"><code>&lt;ul&gt;
+    &lt;li&gt;&lt;button class="btn-produit" data-name="Stylo" data-price="1.5"&gt;Ajouter&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button class="btn-produit" data-name="Cahier" data-price="2.9"&gt;Ajouter&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                    <pre class="js"><code><span class="word">const</span> boutons = document.<span class="function">querySelectorAll</span>(<span class="text">".btn-produit"</span>);
+
+<span class="word">for</span> (<span class="word">const</span> btn <span class="word">of</span> boutons) {
+    btn.<span class="function">addEventListener</span>(<span class="text">"click"</span>, () => {
+        <span class="word">const</span> nom = btn.dataset.name;
+        <span class="word">const</span> prix = <span class="function">Number</span>(btn.dataset.price);
+
+        console.<span class="function">log</span>(<span class="text">`Ajout : ${nom} (${prix} €)`</span>);
+    });
+}</code></pre>
+
+                    <p>
+                        Ce pattern est très utilisé dans les interfaces : HTML est "déclaratif", JS est "logique".
+                    </p>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -220,16 +190,70 @@
 
         <!-- content section
              ======================================================================================================= -->
+        <section id="delegation">
+            <h2>Délégation d'événements</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        On utilise cette variante quand le nombre d'éléments est plus important. On fait appel aux
+                        événements avant de cibler l'objet avec son<span class="comment"> dataset</span>.
+                    </p>
+
+                    <pre class="html"><code>&lt;ul&gt;
+    &lt;li&gt;&lt;button class="btn-produit" data-name="Stylo" data-price="1.5"&gt;Ajouter&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button class="btn-produit" data-name="Cahier" data-price="2.9"&gt;Ajouter&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                    <pre class="js"><code><span class="word">const</span> liste = document.<span class="function">querySelector</span>(<span class="text">"ul"</span>);
+
+liste.<span class="function">addEventListener</span>(<span class="text">"click"</span>, (element) => {
+    <span class="word">if</span> (!element.target.<span class="function">matches</span>(<span class="text">".btn-produit"</span>)) {
+        <span class="word">return</span>;
+    }
+
+    <span class="word">const</span> btn = element.target;
+    <span class="word">const</span> nom = btn.dataset.name;
+    console.<span class="function">log</span>(<span class="text">`Ajout : ${nom} (${prix} €)`</span>);
+});</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/objects/delegation.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
         <section id="errors">
             <h2>Erreurs fréquentes</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-
+                    <ul>
+                        <li>
+                            Oublier que<span class="comment"> dataset </span>renvoie des chaînes
+                            :<span class="error"> concaténation au lieu de calcul</span>.
+                        </li>
+                        <li>
+                            Confondre<span class="comment"> data-user-id </span> et <span class="comment"> dataset.userId </span>
+                            :<span class="error"> mauvais nom de propriété</span>.
+                        </li>
+                        <li>
+                            Mettre des données "complexes" directement dans un attribut
+                            :<span class="error"> HTML illisible</span>.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
+
 
         <!-- content section
              ======================================================================================================= -->
@@ -239,12 +263,16 @@
 
                 <!-- exercise -------------------------------------------------------------------------------------- -->
                 <li>
-                    <h3>Lire du code : </h3>
+                    <h3>Lire du code : que lit-on dans la console ?</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <pre class="html"><code>&lt;button id="b" data-count="3"&gt;Test&lt;/button&gt;</code></pre>
 
+                            <pre class="js"><code>const b = document.querySelector("#b");
+const count = b.dataset.count;
+
+console.log(count + 1);
+console.log(Number(count) + 1);</code></pre>
                         </div>
                     </div>
                 </li>
@@ -255,10 +283,15 @@
                 <li>
                     <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <pre class="html"><code>&lt;button class="btn" data-user-id="12"&gt;Voir&lt;/button&gt;
+&lt;button class="btn" data-user-id="13"&gt;Voir&lt;/button&gt;</code></pre>
 
+                            <pre class="js"><code>const btn = document.querySelector(".btn");
+
+for (const b of btn) {
+    console.log(b.dataset.user-id);
+}</code></pre>
                         </div>
                     </div>
                 </li>
@@ -270,12 +303,15 @@
                     <h3>Écrire du code : coder le programme suivant.</h3>
                     <div class="layout">
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-
+                            <ul>
+                                <li>Créer 3 boutons HTML avec la classe<span class="comment"> btn-action</span>.</li>
+                                <li>Chaque bouton a un<span class="comment"> data-action </span> différent :<span class="comment"> add</span>,<span class="comment"> remove</span>,<span class="comment"> reset</span>.</li>
+                                <li>Ajouter un écouteur à chaque bouton.</li>
+                                <li>Quand on clique, afficher dans la console :<span class="comment"> Action : add</span>, etc.</li>
+                            </ul>
                         </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__video">
                             <video controls controlsList="nodownload" preload="metadata">
                                 <source src="../assets/storage/ex3.mp4" type="video/mp4">
@@ -283,6 +319,7 @@
                         </div>
                     </div>
                 </li>
+
             </ol>
         </section>
     </main>

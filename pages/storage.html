@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
     <title>Stockage des données</title>
 </head>
+
 <body>
 
     <!-- ***************************************************************************************************************
@@ -24,99 +26,7 @@
         <!-- navbar
              ======================================================================================================= -->
         <nav>
-            <ul class="navbar">
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <a id="navbar__home" href="../index.html">
-                        <i class="bi bi-house-fill"></i>Accueil
-                    </a>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts de base</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/intro.html">Introduction</a>
-                        </li>
-                        <li>
-                            <a href="../pages/variables.html">Variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/manipulate.html">Manipulation de variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/conditions.html">Structures conditionnelles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/loops.html">Boucles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-calc.html">Projet : La calculatrice</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts intermédiaires</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/functions.html">Fonctions</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays.html">Tableaux : bases</a>
-                        </li>
-                        <li>
-                            <a href="../pages/objects.html">Objets JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/strings.html">Chaînes de caractères</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays-2.html">Tableaux : avancé</a>
-                        </li>
-                        <li>
-                            <a href="../pages/data-attributes.html">Données HTML vers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-grades.html">Projet : Le bulletin semestriel</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts avancés</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/dom.html">Manipulation du DOM</a>
-                        </li>
-                        <li>
-                            <a href="../pages/events.html">Gestion des événements</a>
-                        </li>
-                        <li>
-                            <a href="../pages/timers.html">Timers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/server.html">Requêtes serveur</a>
-                        </li>
-                        <li>
-                            <a href="../pages/forms.html">Formulaires dynamiques</a>
-                        </li>
-                        <li>
-                            <a href="../pages/storage.html">Stockage des données</a>
-                        </li>
-                        <li>
-                            <a href="../pages/errors.html">Gestion des erreurs</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-stocks.html">Projet : La gestion des stocks</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul class="navbar"></ul>
         </nav>
     </header>
 
@@ -160,16 +70,32 @@
          MAIN
     **************************************************************************************************************** -->
     <main>
-
         <!-- content section
              ======================================================================================================= -->
         <section id="save">
             <h2>Enregistrer des données localement</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-
+                    <p>
+                        Pour stocker des données localement dans le navigateur, on
+                        utilise<span class="comment"> localStorage </span>ou<span class="comment"> sessionStorage</span>.
+                    </p>
+                    <ul>
+                        <li>Enregistrer du texte dans<span class="comment"> localStorage</span> :
+                            <pre class="js"><code>localStorage.<span class="function">setItem</span>(<span class="text">"nom"</span>, <span class="text">"Alice"</span>);</code></pre>
+                        </li>
+                        <li>Enregistrer un objet dans<span class="comment"> localStorage</span> :
+                            <pre class="js"><code><span class="word">const</span> utilisateur = { nom: <span class="text">"Alice"</span>, age: <span class="number">25</span> };
+localStorage.<span class="function">setItem</span>(<span class="text">"utilisateur"</span>, JSON.<span class="function">stringify</span>(utilisateur));</code></pre>
+                        </li>
+                        <li>
+                            <span class="comment">localStorage </span>persiste même après la fermeture du navigateur.
+                        </li>
+                        <li>
+                            <span class="comment">sessionStorage </span>est effacé à la fermeture de l'onglet.
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -186,10 +112,26 @@
         <section id="read">
             <h2>Lire des données stockées</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Pour lire les données stockées, on utilise<span class="comment"> getItem</span>.
+                    </p>
+                    <ul>
+                        <li>Lire une chaîne de caractères :
+                            <pre class="js"><code><span class="word">const</span> nom = localStorage.<span class="function">getItem</span>(<span class="text">"nom"</span>);
+console.<span class="function">log</span>(nom);</code></pre>
+                        </li>
 
+                        <li>Lire un objet (nécessite une conversion depuis JSON) :
+                            <pre class="js"><code><span class="word">const</span> utilisateurString = localStorage.<span class="function">getItem</span>(<span class="text">"utilisateur"</span>);
+<span class="word">const</span> utilisateur = JSON.<span class="function">parse</span>(utilisateurString);
+console.<span class="function">log</span>(utilisateur.nom);</code></pre>
+                        </li>
+                        <li>
+                            Si la clé n'existe pas,<span class="comment"> getItem </span>renvoie<span class="comment"> null</span>.
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -206,10 +148,20 @@
         <section id="delete">
             <h2>Supprimer des données</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-
+                    <p>
+                        Pour supprimer une donnée, on utilise<span class="comment"> removeItem</span>. Pour tout
+                        effacer, on utilise<span class="comment"> clear</span>.
+                    </p>
+                    <ul>
+                        <li>Supprimer une donnée :
+                            <pre class="js"><code>localStorage.<span class="function">removeItem</span>(<span class="text">"nom"</span>);</code></pre>
+                        </li>
+                        <li>Supprimer toutes les données :
+                            <pre class="js"><code>localStorage.<span class="function">clear</span>();</code></pre>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -226,10 +178,27 @@
         <section id="usual">
             <h2>Cas d'usage courant</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Voici quelques cas d'usage courants pour<span class="comment"> localStorage </span>
+                        et<span class="comment"> sessionStorage</span>.
+                    </p>
+                    <ul>
+                        <li>Sauvegarder les préférences utilisateur :
+                            <pre class="js"><code><span class="comment">// Sauvegarder l'identifiant</span>
+localStorage.<span class="function">setItem</span>(<span class="text">"username"</span>, <span class="text">"myname"</span>);
 
+<span class="comment">// Récupérer l'identifiant au chargement de la page</span>
+<span class="word">const</span> username = localStorage.<span class="function">getItem</span>(<span class="text">"username"</span>) || <span class="text">""</span>;
+document.body.className = username;</code></pre>
+                        </li>
+                        <li>Stocker un panier d'achat :
+                            <pre class="js"><code><span class="word">let</span> panier = JSON.<span class="function">parse</span>(localStorage.<span class="function">getItem</span>(<span class="text">"panier"</span>) || <span class="text">"[]"</span>);
+panier.<span class="function">push</span>({ id: <span class="number">1</span>, nom: <span class="text">"Produit 1"</span>, quantite: <span class="number">2</span> });
+localStorage.<span class="function">setItem</span>(<span class="text">"panier"</span>, JSON.<span class="function">stringify</span>(panier));</code></pre>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -246,10 +215,26 @@
         <section id="errors">
             <h2>Erreurs fréquentes</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-
+                    <ul>
+                        <li>
+                            Oublier de convertir les objets au format JSON avant de les stocker
+                            :<span class="error"> les données ne sont pas exploitables</span>.
+                        </li>
+                        <li>
+                            Utiliser<span class="comment"> localStorage </span>pour des données sensibles
+                            :<span class="error"> risque de sécurité</span>.
+                        </li>
+                        <li>
+                            Ne pas vérifier si une clé existe avant de la lire
+                            :<span class="error"> risque d'erreur si la clé n'existe pas</span>.
+                        </li>
+                        <li>
+                            Dépasser la limite de stockage (généralement 5 Mo)
+                            :<span class="error"> les données ne sont pas enregistrées</span>.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -259,15 +244,15 @@
         <section id="exercises">
             <h2>Exercices</h2>
             <ol>
-
                 <!-- exercise -------------------------------------------------------------------------------------- -->
                 <li>
-                    <h3>Lire du code : </h3>
+                    <h3>Lire du code : que fait le code suivant ?</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-
+                            <pre class="js"><code>localStorage.setItem("compteur", 0);
+let compteur = localStorage.getItem("compteur");
+compteur++;
+localStorage.setItem("compteur", compteur);</code></pre>
                         </div>
                     </div>
                 </li>
@@ -278,10 +263,12 @@
                 <li>
                     <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-
+                            <p>Corrigez le code pour qu'il fonctionne correctement.</p>
+                            <pre class="js"><code>const utilisateur = { nom: "Alice", age: 25 };
+localStorage.setItem("utilisateur", utilisateur);
+const utilisateurRecupere = localStorage.getItem("utilisateur");
+console.log(utilisateurRecupere.nom);</code></pre>
                         </div>
                     </div>
                 </li>
@@ -292,13 +279,14 @@
                 <li>
                     <h3>Écrire du code : coder le programme suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-
+                            <ul>
+                                <li>Créer un compteur qui s'incrémente à chaque clic sur un bouton.</li>
+                                <li>Stocker la valeur du compteur dans<span class="comment"> localStorage</span>.</li>
+                                <li>Au chargement de la page, récupérer la valeur du compteur depuis<span class="comment"> localStorage</span>.</li>
+                            </ul>
                         </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__video">
                             <video controls controlsList="nodownload" preload="metadata">
                                 <source src="../assets/storage/ex3.mp4" type="video/mp4">
@@ -309,6 +297,7 @@
             </ol>
         </section>
     </main>
+
 
     <!-- ***************************************************************************************************************
          FOOTER

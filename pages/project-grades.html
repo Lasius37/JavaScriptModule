@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Projet : le bulletin semestriel</title>
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Projet : Le bulletin semestriel</title>
 </head>
+
 <body>
 
     <!-- ***************************************************************************************************************
@@ -24,99 +26,7 @@
         <!-- navbar
              ======================================================================================================= -->
         <nav>
-            <ul class="navbar">
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <a id="navbar__home" href="../index.html">
-                        <i class="bi bi-house-fill"></i>Accueil
-                    </a>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts de base</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/intro.html">Introduction</a>
-                        </li>
-                        <li>
-                            <a href="../pages/variables.html">Variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/manipulate.html">Manipulation de variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/conditions.html">Structures conditionnelles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/loops.html">Boucles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-calc.html">Projet : La calculatrice</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts intermédiaires</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/functions.html">Fonctions</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays.html">Tableaux : bases</a>
-                        </li>
-                        <li>
-                            <a href="../pages/objects.html">Objets JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/strings.html">Chaînes de caractères</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays-2.html">Tableaux : avancé</a>
-                        </li>
-                        <li>
-                            <a href="../pages/data-attributes.html">Données HTML vers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-grades.html">Projet : Le bulletin semestriel</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts avancés</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/dom.html">Manipulation du DOM</a>
-                        </li>
-                        <li>
-                            <a href="../pages/events.html">Gestion des événements</a>
-                        </li>
-                        <li>
-                            <a href="../pages/timers.html">Timers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/server.html">Requêtes serveur</a>
-                        </li>
-                        <li>
-                            <a href="../pages/forms.html">Formulaires dynamiques</a>
-                        </li>
-                        <li>
-                            <a href="../pages/storage.html">Stockage des données</a>
-                        </li>
-                        <li>
-                            <a href="../pages/errors.html">Gestion des erreurs</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-stocks.html">Projet : La gestion des stocks</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul class="navbar"></ul>
         </nav>
     </header>
 
@@ -160,27 +70,69 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-                    <p>Consigne</p>
+                    <p>
+                        Réaliser un programme JavaScript simulant le bilan semestriel pour une classe. Pour chaque
+                        élève, on doit calculer sa moyenne, sa mention et indiquer son classement.
+                    </p>
 
                     <div class="separator"></div>
 
                     <ol>
 
-                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <!-- specifications ---------------------------------------------------------------------------- -->
                         <li>
                             <h3>Format des données</h3>
                             <ul>
-                                <li>Element.</li>
+                                <li>Les élèves sont stockés dans un tableau.</li>
+                                <li>Chaque élève est un objet avec :
+                                    <ul>
+                                        <li>un prénom (string)</li>
+                                        <li>un nom (string)</li>
+                                        <li>un relevé de notes (tableau de nombres)</li>
+                                    </ul>
+                                </li>
+                                <li>Les notes sont des nombres (0 à 20).</li>
+                                <li>Les éléments calculés peuvent être ajoutés aux données.</li>
                             </ul>
                         </li>
 
                         <div class="separator"></div>
 
-                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <!-- specifications ---------------------------------------------------------------------------- -->
                         <li>
                             <h3>Fonctionnement</h3>
                             <ul>
-                                <li>Element.</li>
+                                <li>Le programme classe les élèves par moyenne décroissante.</li>
+
+                                <li>Pour chaque élève, il affiche :
+                                    <ul>
+                                        <li>
+                                            Classement (en cas d'égalité de moyenne, les élèves ont le même rang et
+                                            sont affichés par ordre alphabétique)
+                                        </li>
+                                        <li>Nom + prénom</li>
+                                        <li>Moyenne (arrondie à 2 décimales)</li>
+                                        <li>Mention</li>
+                                    </ul>
+                                </li>
+
+                                <li>La mention est calculée selon la moyenne :
+                                    <ul>
+                                        <li>"Admis mention Excellent" si moyenne ≥ 18</li>
+                                        <li>"Admis mention Très bien" si moyenne ≥ 16</li>
+                                        <li>"Admis mention Bien" si moyenne ≥ 14</li>
+                                        <li>"Admis mention Assez Bien" si moyenne ≥ 12</li>
+                                        <li>"Admis" si moyenne ≥ 10</li>
+                                        <li>"Ajourné" dans les autres cas</li>
+                                    </ul>
+                                </li>
+
+                                <li>Le programme affiche le bilan de la classe :
+                                    <ul>
+                                        <li>la moyenne générale de la classe</li>
+                                        <li>le nombre d'élèves ayant obtenu chaque type d'appréciation</li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     </ol>
@@ -197,7 +149,28 @@
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
                     <ul>
-                        <li>Étapes</li>
+                        <li>Créer les données (5 élèves, 5 notes chacun).</li>
+                        <li>
+                            Écrire une fonction<span class="comment"> moyenne </span>qui prend un tableau de nombres et
+                            renvoie la moyenne de l'ensemble.
+                        </li>
+                        <li>
+                            Écrire une fonction<span class="comment"> mention </span>qui prend une moyenne et renvoie
+                            la mention adéquate.
+                        </li>
+                        <li>
+                            Ajouter une propriété<span class="comment"> moyenne </span>et une
+                            propriété<span class="comment"> mention </span>pour chaque élève.
+                        </li>
+                        <li>Afficher un résultat propre avec une template literal.</li>
+                        <li>Calculer les statistiques globales de la classe.</li>
+                        <li>Établir le classement :
+                            <ul>
+                                <li>créer une copie du tableau avant de trier (pour ne pas modifier l’original).</li>
+                                <li>trier sur la moyenne décroissante.</li>
+                                <li>ajouter un tri secondaire sur le nom en cas d'égalité.</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -213,9 +186,69 @@
                 <!-- step ------------------------------------------------------------------------------------------ -->
                 <li class="step">
                     <span>
-                        <span>Stockage des saisies utilisateur dans des variables sous forme de décimaux.</span>
+                        <span>Initialisation des données (élèves et notes).</span>
                         <video controls controlsList="nodownload" preload="metadata">
                             <source src="../assets/project-grades/solution1.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Codage de la fonction<span class="comment"> moyenne </span>et ajout de la propriété.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-grades/solution2.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Codage de la fonction<span class="comment"> mention </span>et ajout de la propriété.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-grades/solution3.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Affichage pour chaque élève : identité, moyenne, appréciation.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-grades/solution4.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Calcul des statistiques globales de la classe.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-grades/solution5.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Création du classement.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-grades/solution6.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Gestion des égalités.</span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-grades/solution7.mp4" type="video/mp4">
                         </video>
                     </span>
                 </li>

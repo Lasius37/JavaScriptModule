@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
     <title>Projet : La gestion des stocks</title>
 </head>
+
 <body>
 
     <!-- ***************************************************************************************************************
@@ -24,99 +26,7 @@
         <!-- navbar
              ======================================================================================================= -->
         <nav>
-            <ul class="navbar">
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <a id="navbar__home" href="../index.html">
-                        <i class="bi bi-house-fill"></i>Accueil
-                    </a>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts de base</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/intro.html">Introduction</a>
-                        </li>
-                        <li>
-                            <a href="../pages/variables.html">Variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/manipulate.html">Manipulation de variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/conditions.html">Structures conditionnelles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/loops.html">Boucles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-calc.html">Projet : La calculatrice</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts intermédiaires</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/functions.html">Fonctions</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays.html">Tableaux : bases</a>
-                        </li>
-                        <li>
-                            <a href="../pages/objects.html">Objets JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/strings.html">Chaînes de caractères</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays-2.html">Tableaux : avancé</a>
-                        </li>
-                        <li>
-                            <a href="../pages/data-attributes.html">Données HTML vers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-grades.html">Projet : Le bulletin semestriel</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts avancés</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/dom.html">Manipulation du DOM</a>
-                        </li>
-                        <li>
-                            <a href="../pages/events.html">Gestion des événements</a>
-                        </li>
-                        <li>
-                            <a href="../pages/timers.html">Timers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/server.html">Requêtes serveur</a>
-                        </li>
-                        <li>
-                            <a href="../pages/forms.html">Formulaires dynamiques</a>
-                        </li>
-                        <li>
-                            <a href="../pages/storage.html">Stockage des données</a>
-                        </li>
-                        <li>
-                            <a href="../pages/errors.html">Gestion des erreurs</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-stocks.html">Projet : La gestion des stocks</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul class="navbar"></ul>
         </nav>
     </header>
 
@@ -160,27 +70,78 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-                    <p>Consigne</p>
+                    <p>
+                        Réaliser une mini-application front-end de gestion de stocks. L’utilisateur peut ajouter
+                        des produits, modifier les quantités, filtrer/rechercher, et conserver l’état localement.
+                    </p>
 
                     <div class="separator"></div>
 
                     <ol>
 
-                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <!-- specifications ---------------------------------------------------------------------------- -->
                         <li>
                             <h3>Format des données</h3>
                             <ul>
-                                <li>Element.</li>
+                                <li>
+                                    Un produit est un objet avec les propriétés suivantes :
+                                    <ul>
+                                        <li><span class="comment">id </span>(number ou string)</li>
+                                        <li><span class="comment">name </span>(string)</li>
+                                        <li><span class="comment">quantity </span>(number)</li>
+                                        <li><span class="comment">min </span>(number : seuil d’alerte)</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Les produits sont stockés dans un tableau<span class="comment"> stocks</span>.
+                                </li>
+                                <li>
+                                    Chaque ligne "produit" affichée dans le HTML possède des<span class="comment"> data-attributes </span>:
+                                    <ul>
+                                        <li><span class="comment">data-id </span>pour identifier le produit</li>
+                                        <li><span class="comment">data-action </span>sur les boutons<span class="comment"> inc</span>, <span class="comment"> dec</span></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Le stockage local (navigateur) utilise une clé unique<span class="comment"> "stocks"</span>.
+                                </li>
                             </ul>
                         </li>
 
                         <div class="separator"></div>
 
-                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <!-- specifications ---------------------------------------------------------------------------- -->
                         <li>
                             <h3>Fonctionnement</h3>
                             <ul>
-                                <li>Element.</li>
+                                <li>
+                                    Les stocks sont initialisés depuis<span class="comment"> localStorage </span>
+                                    s'il existe, sinon ils sont réinitialisés.
+                                </li>
+                                <li>
+                                    Chaque produit possède des actions : incrémentation du stock, décrémentation
+                                    du stock et suppression.
+                                </li>
+                                <li>Un stock ne peut jamais être négatif.</li>
+                                <li>Si la quantité atteint le minimum, une alerte visuelle le met en évidence.</li>
+                                <li>La page contient :
+                                    <ul>
+                                        <li>une zone de liste de produits (le conteneur)</li>
+                                        <li>une zone de résumé (total produits, nombre d'alertes)</li>
+                                        <li>une zone d'erreur (messages pour l'utilisateur)</li>
+                                        <li>un champ recherche pour filtrer la liste</li>
+                                        <li>un switch ou un checkbox pour afficher uniquement les alertes</li>
+                                        <li>un formulaire de création</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    On utilisera les<span class="comment"> data-attributes </span>pour
+                                    retrouver le produit à modifier ou l'action à effectuer.
+                                </li>
+                                <li>
+                                    Après chaque modification, les données sont stockées
+                                    dans<span class="comment"> localStorage</span>.
+                                </li>
                             </ul>
                         </li>
                     </ol>
@@ -197,7 +158,57 @@
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
                     <ul>
-                        <li>Étapes</li>
+                        <li>Créer un tableau<span class="comment"> stocks </span>avec quelques produits.</li>
+                        <li>
+                            Coder les fonctions
+                            <ul>
+                                <li><span class="comment">getStats </span>pour le calcul des données globales</li>
+                                <li>
+                                    <span class="comment">render(stocks) </span>pour l'affichage de la liste et
+                                    du résumé (total, alertes)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Ajouter des<span class="comment"> data-id </span>sur les produits
+                            et<span class="comment"> data-action </span>sur les boutons.
+                        </li>
+                        <li>Brancher un écouteur sur le conteneur de liste.</li>
+                        <li>
+                            Coder les fonctions<span class="comment"> incStock </span>
+                            et<span class="comment"> decStock </span> en prenant en compte :
+                            <ul>
+                                <li>un enregistrement des données sans rechargement</li>
+                                <li>l'impossibilité d'avoir un stock négatif</li>
+                                <li>
+                                    une utilisation de<span class="comment"> data-id </span>
+                                    et<span class="comment"> data-action</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Créer le formulaire visuellement, en incluant la zone d'affichage des erreurs.</li>
+                        <li>Créer la fonction<span class="comment"> showError </span>pour afficher les erreurs.</li>
+                        <li>
+                            Coder les fonctions<span class="comment"> addProduct </span>
+                            et<span class="comment"> delProduct </span> en prenant en compte :
+                            <ul>
+                                <li>la validité du formulaire</li>
+                                <li>la gestion des erreurs par des messages clairs</li>
+                                <li>l’enregistrement des données sans rechargement</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Coder les fonctions de filtrage<span class="comment"> filterByName </span>
+                            et<span class="comment"> filterByMin</span>. Les deux filtres se combinent.
+                        </li>
+                        <li>
+                            Pour<span class="comment"> filterByName </span>, rafraîchir la liste 300 ms après la
+                            dernière frappe clavier.
+                        </li>
+                        <li>
+                            Coder les fonctions<span class="comment"> saveToStorage </span>et
+                            <span class="comment"> loadFromStorage</span> en prenant en compte les erreurs.
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -210,12 +221,114 @@
 
             <ol class="steps">
 
-                <!-- step ------------------------------------------------------------------------------------------ -->
                 <li class="step">
                     <span>
-                        <span>Stockage des saisies utilisateur dans des variables sous forme de décimaux.</span>
+                        <span>
+                            Initialisation du stock et ajout du<span class="comment"> dataset </span>sur les produits.
+                        </span>
                         <video controls controlsList="nodownload" preload="metadata">
                             <source src="../assets/project-stocks/solution1.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <li class="step">
+                    <span>
+                        <span>
+                            Codage des fonctions de calcul et d'affichage des données globales.
+                        </span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-stocks/solution2.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <li class="step">
+                    <span>
+                        <span>
+                            Utilisation de<span class="comment">addEventListener</span>.
+                        </span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-stocks/solution3.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <li class="step">
+                    <span>
+                        <span>
+                            Codage des fonctions<span class="comment"> incStock </span>
+                            et<span class="comment"> decStock</span>.
+                        </span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-stocks/solution4.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <li class="step">
+                    <span>
+                        <span>
+                            Création du formulaire.
+                        </span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-stocks/solution5.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <li class="step">
+                    <span>
+                        <span>
+                            Affichage des erreurs avec<span class="comment"> showError</span>.
+                        </span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-stocks/solution6.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <li class="step">
+                    <span>
+                        <span>
+                            Codage des fonctions<span class="comment"> addProduct </span>
+                            et<span class="comment"> delProduct</span>.
+                        </span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-stocks/solution7.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <li class="step">
+                    <span>
+                        <span>
+                            Codage des fonctions de filtre.
+                        </span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-stocks/solution8.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <li class="step">
+                    <span>
+                        <span>
+                            Rafraîchissement retardé pour<span class="comment"> filterByName</span>.
+                        </span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-stocks/solution9.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <li class="step">
+                    <span>
+                        <span>
+                            Enregistrement et chargement des données.
+                        </span>
+                        <video controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/project-stocks/solution10.mp4" type="video/mp4">
                         </video>
                     </span>
                 </li>

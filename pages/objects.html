@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
     <title>Objets JavaScript</title>
 </head>
+
 <body>
 
     <!-- ***************************************************************************************************************
@@ -24,99 +26,7 @@
         <!-- navbar
              ======================================================================================================= -->
         <nav>
-            <ul class="navbar">
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <a id="navbar__home" href="../index.html">
-                        <i class="bi bi-house-fill"></i>Accueil
-                    </a>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts de base</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/intro.html">Introduction</a>
-                        </li>
-                        <li>
-                            <a href="../pages/variables.html">Variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/manipulate.html">Manipulation de variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/conditions.html">Structures conditionnelles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/loops.html">Boucles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-calc.html">Projet : La calculatrice</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts intermédiaires</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/functions.html">Fonctions</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays.html">Tableaux : bases</a>
-                        </li>
-                        <li>
-                            <a href="../pages/objects.html">Objets JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/strings.html">Chaînes de caractères</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays-2.html">Tableaux : avancé</a>
-                        </li>
-                        <li>
-                            <a href="../pages/data-attributes.html">Données HTML vers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-grades.html">Projet : Le bulletin semestriel</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts avancés</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/dom.html">Manipulation du DOM</a>
-                        </li>
-                        <li>
-                            <a href="../pages/events.html">Gestion des événements</a>
-                        </li>
-                        <li>
-                            <a href="../pages/timers.html">Timers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/server.html">Requêtes serveur</a>
-                        </li>
-                        <li>
-                            <a href="../pages/forms.html">Formulaires dynamiques</a>
-                        </li>
-                        <li>
-                            <a href="../pages/storage.html">Stockage des données</a>
-                        </li>
-                        <li>
-                            <a href="../pages/errors.html">Gestion des erreurs</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-stocks.html">Projet : La gestion des stocks</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul class="navbar"></ul>
         </nav>
     </header>
 
@@ -138,6 +48,9 @@
                     </li>
                     <li class="sidebar__element">
                         <a href="#properties">Accéder aux propriétés</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#browse">Parcourir un objet</a>
                     </li>
                     <li class="sidebar__element">
                         <a href="#methods">Ajouter des méthodes</a>
@@ -175,7 +88,31 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Un objet permet de regrouper plusieurs informations qui décrivent une "même chose". Chaque
+                        information est stockée dans une propriété sous la forme<span class="comment"> clé : valeur</span>.
+                    </p>
 
+                    <ul>
+                        <li>Créer un objet "littéral" :
+                            <pre class="js"><code><span class="word">const</span> eleve = {
+    nom: <span class="text">"Alice"</span>,
+    age: <span class="number">12</span>,
+    classe: <span class="text">"6eA"</span>
+};</code></pre>
+                        </li>
+
+                        <li>Créer un objet vide puis ajouter des propriétés :
+                            <pre class="js"><code><span class="word">const</span> eleve2 = {};
+eleve2.nom = <span class="text">"Basile"</span>;
+eleve2.age = <span class="number">13</span>;</code></pre>
+                        </li>
+                    </ul>
+
+                    <p>
+                        Un objet est utile pour stocker un groupe de données cohérentes ensemble, et qui doivent être
+                        nommées (nom, âge, etc.).
+                    </p>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -195,7 +132,35 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Il existe deux manières principales d’accéder aux propriétés d’un objet.
+                    </p>
 
+                    <ul>
+                        <li>Notation "point" :
+                            <pre class="js"><code><span class="word">const</span> eleve = {
+    nom: <span class="text">"Alice"</span>,
+    age: <span class="number">12</span>
+};
+
+console.<span class="function">log</span>(eleve.nom); <span class="comment">&nbsp;// "Alice"</span>
+console.<span class="function">log</span>(eleve.age); <span class="comment">&nbsp;// 12</span></code></pre>
+                        </li>
+
+                        <li>Notation "crochets" (utile si la clé est dans une variable) :
+                            <pre class="js"><code><span class="word">const</span> cle = <span class="text">"nom"</span>;
+
+console.<span class="function">log</span>(eleve[cle]); <span class="comment">&nbsp;// "Alice"</span></code></pre>
+                        </li>
+
+                        <li>Modifier une propriété :
+                            <pre class="js"><code>eleve.age = <span class="number">13</span>;</code></pre>
+                        </li>
+                    </ul>
+
+                    <p>
+                        Si une propriété n’existe pas, JavaScript renvoie <span class="comment">undefined</span>.
+                    </p>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -209,13 +174,90 @@
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="methods">
-            <h2>Accéder aux méthodes</h2>
+        <section id="browse">
+            <h2>Parcourir un objet</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Pour parcourir un objet, on utilise<span class="comment"> for...in</span>.
+                        Cette boucle renvoie les<span class="comment"> clés </span>de l’objet.
+                    </p>
 
+                    <ul>
+                        <li>Afficher les clés :
+                            <pre class="js"><code><span class="word">const</span> eleve = {
+    nom: <span class="text">"Alice"</span>,
+    age: <span class="number">12</span>,
+    classe: <span class="text">"6eA"</span>
+};
+
+<span class="word">for</span> (<span class="word">const</span> cle <span class="word">in</span> eleve) {
+    console.<span class="function">log</span>(cle);
+}</code></pre>
+                        </li>
+
+                        <li>Afficher les clés et les valeurs :
+                            <pre class="js"><code><span class="word">for</span> (<span class="word">const</span> cle <span class="word">in</span> eleve) {
+    console.<span class="function">log</span>(cle + <span class="text">" : "</span> + eleve[cle]);
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <p>Attention : dans ce cas, la notation "point" ne fonctionne pas avec une clé dans une variable.</p>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/objects/browse.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="methods">
+            <h2>Ajouter des méthodes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Une méthode est une fonction stockée dans une propriété. Elle permet d’associer des
+                        comportements à un objet.
+                    </p>
+
+                    <ul>
+                        <li>Définir une méthode :
+                            <pre class="js"><code><span class="word">const</span> eleve = {
+    nom: <span class="text">"Alice"</span>,
+    age: <span class="number">12</span>,
+    direBonjour: <span class="word">function</span> () {
+        console.<span class="function">log</span>(<span class="text">"Bonjour !"</span>);
+    }
+};</code></pre>
+                        </li>
+
+                        <li>Accéder à une méthode :
+                            <pre class="js"><code>eleve.<span class="function">direBonjour</span>();</code></pre>
+                        </li>
+
+                        <li>Notation plus courte :
+                            <pre class="js"><code><span class="word">const</span> eleve2 = {
+    nom: <span class="text">"Basile"</span>,
+    <span class="function">direBonjour</span>() {
+        console.<span class="function">log</span>(<span class="text">"Bonjour !"</span>);
+    }
+};</code></pre>
+
+                        <li>Une méthode peut aussi renvoyer une valeur avec<span class="comment"> return</span>.
+                            <pre class="js"><code><span class="word">const</span> calculerAnneeNaissance = (age) => <span class="number">2026</span> - age;</code></pre>
+
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -235,7 +277,20 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        <span class="comment">this </span>est un mot-clé qui désigne "l’objet courant".
+                        Dans une méthode, il permet d’accéder aux propriétés du même objet.
+                    </p>
 
+                    <pre class="js"><code><span class="word">const</span> eleve = {
+    nom: <span class="text">"Alice"</span>,
+    age: <span class="number">12</span>,
+    presentation() {
+        console.<span class="function">log</span>(<span class="text">`Je m'appelle ${this.nom} et j'ai ${this.age} ans.`</span>);
+    }
+};
+
+eleve.<span class="function">presentation</span>();</code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -255,7 +310,33 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        En JavaScript, les objets sont manipulés par référence. Cela signifie que la variable ne
+                        contient pas l’objet, mais un lien vers lui.
+                    </p>
 
+                    <ul>
+                        <li>Exemple : deux variables pointent vers le même objet :
+                            <pre class="js"><code><span class="word">const</span> a = { x: <span class="number">1</span> };
+<span class="word">const</span> b = a;
+
+b.x = <span class="number">99</span>;
+
+console.<span class="function">log</span>(a.x); <span class="comment">&nbsp;// 99</span></code></pre>
+                        </li>
+
+                        <li>Comparer deux objets :
+                            <pre class="js"><code><span class="word">const</span> o1 = { x: <span class="number">1</span> };
+<span class="word">const</span> o2 = { x: <span class="number">1</span> };
+
+console.<span class="function">log</span>(o1 === o2); <span class="comment">&nbsp;// false</span></code></pre>
+                        </li>
+                    </ul>
+
+                    <p>
+                        <span class="comment">=== </span>compare les références, pas le contenu. Deux objets
+                        identiques en apparence ne sont pas égaux s’ils ne sont pas la même référence.
+                    </p>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -275,7 +356,28 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Pour créer plusieurs objets du même "type", on utilise un constructeur
+                        avec<span class="comment"> new</span>.
+                    </p>
 
+                    <pre class="js"><code><span class="word">function</span> Eleve(nom, age) {
+    this.nom = nom;
+    this.age = age;
+    this.presentation = <span class="word">function</span> () {
+        console.<span class="function">log</span>(<span class="text">`Je m'appelle ${this.nom}`</span>);
+    };
+}
+
+<span class="word">const</span> e1 = <span class="word">new</span> Eleve(<span class="text">"Alice"</span>, <span class="number">12</span>);
+<span class="word">const</span> e2 = <span class="word">new</span> Eleve(<span class="text">"Basile"</span>, <span class="number">13</span>);
+
+e1.presentation();
+e2.presentation();</code></pre>
+
+                    <p>
+                        Ici,<span class="comment"> this </span>représente l’objet créé par<span class="comment"> new</span>.
+                    </p>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -295,7 +397,29 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-
+                    <ul>
+                        <li>
+                            Confondre notation point et crochets :
+                            <span class="error">lecture incorrecte d’une propriété</span>.
+                        </li>
+                        <li>
+                            Utiliser<span class="comment"> objet.cle </span> au lieu de <span class="comment"> objet[cle] </span>
+                            :<span class="error">renvoie souvent undefined</span>.
+                        </li>
+                        <li>
+                            Oublier que les objets sont des références
+                            :<span class="error"> modifier un objet "copié" modifie l’original</span>.
+                        </li>
+                        <li>
+                            Utiliser<span class="comment"> this </span>hors d’une méthode appelée comme
+                            <span class="comment"> objet.methode() </span>
+                            :<span class="error">this ne pointe pas vers l’objet attendu</span>.
+                        </li>
+                        <li>
+                            Oublier<span class="comment"> new </span>avec un constructeur
+                            :<span class="error">objet non créé comme prévu</span>.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -308,12 +432,17 @@
 
                 <!-- exercise -------------------------------------------------------------------------------------- -->
                 <li>
-                    <h3>Lire du code : </h3>
+                    <h3>Lire du code : que va afficher la console ?</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <pre class="js"><code>const eleve = {
+    nom: "Alice",
+    age: 12,
+    classe: "6eA"
+};
 
+console.log(eleve.nom);
+console.log(eleve["age"]);</code></pre>
                         </div>
                     </div>
                 </li>
@@ -324,10 +453,17 @@
                 <li>
                     <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <pre class="js"><code>const eleve = {
+    nom: "Basile",
+    age: 13,
+    presentation() {
+        console.log(`Je m'appelle ${nom}`);
+    }
+};
 
+const cle = "age";
+console.log(eleve.cle);</code></pre>
                         </div>
                     </div>
                 </li>
@@ -338,13 +474,16 @@
                 <li>
                     <h3>Écrire du code : coder le programme suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-
+                            <ul>
+                                <li>Créer un objet<span class="comment"> produit </span>avec : nom, prix, stock.</li>
+                                <li>Ajouter une méthode<span class="comment"> vendre </span>qui diminue le stock de 1 si possible.</li>
+                                <li>Si le stock est à 0, afficher un message dans la console.</li>
+                                <li>Tester la méthode plusieurs fois.</li>
+                                <li>Ajouter une méthode afficher() qui affiche l'état du produit.</li>
+                            </ul>
                         </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__video">
                             <video controls controlsList="nodownload" preload="metadata">
                                 <source src="../assets/objects/ex3.mp4" type="video/mp4">

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Tableaux (avancé)</title>
+</head>
+
+<body>
+
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Tableaux : avancé</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#map">Transformer un tableau</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#filter">Filtrer un tableau</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#reduce">Calculer à partir d'un tableau</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#find">Rechercher un élément</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#spread">Copier et fusionner</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#destructuring">Extraire des valeurs</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#errors">Erreurs fréquentes</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#exercises">Exercices</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section ======================================================================================= -->
+        <section id="map">
+            <h2>Transformer un tableau</h2>
+            <div class="layout">
+                <div class="layout__text">
+                    <p>
+                        <span class="comment">map() </span>crée un nouveau tableau en transformant chaque élément de
+                        l’original. Le tableau initial n’est pas modifié.
+                    </p>
+
+                    <pre class="js"><code><span class="word">const</span> notes = [<span class="number">8</span>, <span class="number">12</span>, <span class="number">15</span>];
+
+<span class="word">const</span> doubles = notes.<span class="function">map</span>((n) => n * <span class="number">2</span>);
+
+console.<span class="function">log</span>(doubles);</code></pre>
+                </div>
+
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/arrays/map.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- content section ======================================================================================= -->
+        <section id="filter">
+            <h2>Filtrer un tableau</h2>
+            <div class="layout">
+                <div class="layout__text">
+                    <p>
+                        <span class="comment">filter() </span>crée un nouveau tableau contenant uniquement les
+                        éléments qui respectent une condition.
+                    </p>
+
+                    <pre class="js"><code><span class="word">const</span> notes = [<span class="number">8</span>, <span class="number">12</span>, <span class="number">15</span>, <span class="number">9</span>];
+
+<span class="word">const</span> admis = notes.<span class="function">filter</span>((n) => n >= <span class="number">10</span>);
+
+console.<span class="function">log</span>(admis);</code></pre>
+                </div>
+
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/arrays/filter.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- content section ======================================================================================= -->
+        <section id="reduce">
+            <h2>Calculer à partir d'un tableau</h2>
+            <div class="layout">
+                <div class="layout__text">
+                    <p>
+                        <span class="comment">reduce() </span>permet de transformer un tableau en une seule valeur
+                        (somme, moyenne, total, etc.).
+                    </p>
+
+                    <pre class="js"><code><span class="word">const</span> notes = [<span class="number">10</span>, <span class="number">12</span>, <span class="number">15</span>];
+
+<span class="word">const</span> somme = notes.<span class="function">reduce</span>((acc, n) => acc + n, <span class="number">0</span>);
+
+console.<span class="function">log</span>(somme);</code></pre>
+
+                    <p>
+                        Paramètres :
+                    </p>
+                    <ul>
+                        <li><span class="comment">acc </span>: accumulateur</li>
+                        <li><span class="comment">n </span>: élément courant ("boucle")</li>
+                        <li><span class="comment">0 </span>: valeur initiale de<span class="comment"> acc</span></li>
+                    </ul>
+                </div>
+
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/arrays/reduce.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- content section ======================================================================================= -->
+        <section id="find">
+            <h2>Rechercher un élément</h2>
+            <div class="layout">
+                <div class="layout__text">
+                    <p>
+                        <span class="comment">find() </span>renvoie le premier élément qui correspond à une condition.
+                    </p>
+
+                    <pre class="js"><code><span class="word">const</span> notes = [<span class="number">8</span>, <span class="number">12</span>, <span class="number">15</span>];
+
+<span class="word">const</span> note = notes.<span class="function">find</span>((n) => n >= <span class="number">10</span>);
+
+console.<span class="function">log</span>(note);</code></pre>
+
+                    <p>
+                        Si aucun élément ne correspond, la méthode renvoie<span class="comment"> undefined</span>.
+                    </p>
+                </div>
+
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/arrays/find.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- content section ======================================================================================= -->
+        <section id="spread">
+            <h2>Copier et fusionner</h2>
+            <div class="layout">
+                <div class="layout__text">
+                    <p>
+                        L’opérateur <span class="comment">...</span> (spread) permet de copier ou fusionner des tableaux.
+                    </p>
+
+                    <pre class="js"><code><span class="word">const</span> a = [<span class="number">1</span>, <span class="number">2</span>];
+<span class="word">const</span> b = [<span class="number">3</span>, <span class="number">4</span>];
+
+<span class="word">const</span> copie = [<span class="word">...</span>a];
+<span class="word">const</span> fusion = [<span class="word">...</span>a, <span class="word">...</span>b];
+
+console.<span class="function">log</span>(fusion);</code></pre>
+
+                    <p>
+                        On l'utilise pour éviter les effets de référence non désirés ou pour obtenir un tableau à partir
+                        de plusieurs.
+                    </p>
+                </div>
+
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/arrays/spread.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- content section ======================================================================================= -->
+        <section id="destructuring">
+            <h2>Extraire des valeurs</h2>
+            <div class="layout">
+                <div class="layout__text">
+                    <p>
+                        Le destructuring permet d’extraire facilement des valeurs d’un tableau.
+                    </p>
+
+                    <pre class="js"><code><span class="word">const</span> notes = [<span class="number">12</span>, <span class="number">15</span>, <span class="number">9</span>];
+
+<span class="word">const</span> [a, b] = notes;
+
+console.<span class="function">log</span>(a);
+console.<span class="function">log</span>(b);</code></pre>
+
+                    <p>
+                        On peut ignorer une valeur :
+                    </p>
+
+                    <pre class="js"><code><span class="word">const</span> [premiere, , troisieme] = notes;</code></pre>
+                </div>
+
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/arrays/destructuring.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- content section ======================================================================================= -->
+        <section id="errors">
+            <h2>Erreurs fréquentes</h2>
+            <div class="layout">
+                <div class="layout__text">
+                    <ul>
+                        <li>
+                            Oublier que<span class="comment"> map() </span>et<span class="comment"> filter() </span>
+                            ne modifient pas le tableau d’origine : <span class="error">risque de résultat inattendu</span>.
+                        </li>
+                        <li>
+                            Oublier la valeur initiale dans <span class="comment"> reduce() </span>
+                            :<span class="error"> résultat inattendu</span>.
+                        </li>
+                        <li>
+                            Confondre<span class="comment"> find() </span>et<span class="comment"> filter() </span>:
+                            <span class="error"> comportement inattendu</span>.
+                        </li>
+                        <li>
+                            Copier un tableau avec<span class="comment"> = </span>au lieu de<span class="comment"> ... </span>
+                            :<span class="error"> problème de référence</span>.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- content section ======================================================================================= -->
+        <section id="exercises">
+            <h2>Exercices</h2>
+            <ol>
+
+                <li>
+                    <h3>Lire du code : qu'affiche la console ?</h3>
+                    <div class="layout">
+                        <div class="layout__text">
+                            <pre class="js"><code>const tab = [2, 4, 6];
+
+const result = tab
+    .map((n) => n + 1)
+    .filter((n) => n > 4);
+
+console.log(result);</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <li>
+                    <h3>Corriger le code</h3>
+                    <div class="layout">
+                        <div class="layout__text">
+                            <pre class="js"><code>const notes = [10, 12];
+const copie = notes;
+
+copie.push(15);
+
+console.log(notes);</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <li>
+                    <h3>Écrire du code</h3>
+                    <div class="layout">
+                        <div class="layout__text">
+                            <ul>
+                                <li>Créer un tableau de nombres.</li>
+                                <li>Créer un nouveau tableau contenant les carrés.</li>
+                                <li>Calculer la somme des carrés.</li>
+                                <li>Afficher le résultat.</li>
+                            </ul>
+                        </div>
+
+                        <div class="layout__video">
+                            <video controls controlsList="nodownload" preload="metadata">
+                                <source src="../assets/arrays/ex3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </li>
+
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

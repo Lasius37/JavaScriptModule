@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
     <title>Formulaires dynamiques</title>
 </head>
+
 <body>
 
     <!-- ***************************************************************************************************************
@@ -24,99 +26,7 @@
         <!-- navbar
              ======================================================================================================= -->
         <nav>
-            <ul class="navbar">
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <a id="navbar__home" href="../index.html">
-                        <i class="bi bi-house-fill"></i>Accueil
-                    </a>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts de base</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/intro.html">Introduction</a>
-                        </li>
-                        <li>
-                            <a href="../pages/variables.html">Variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/manipulate.html">Manipulation de variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/conditions.html">Structures conditionnelles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/loops.html">Boucles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-calc.html">Projet : La calculatrice</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts intermédiaires</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/functions.html">Fonctions</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays.html">Tableaux : bases</a>
-                        </li>
-                        <li>
-                            <a href="../pages/objects.html">Objets JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/strings.html">Chaînes de caractères</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays-2.html">Tableaux : avancé</a>
-                        </li>
-                        <li>
-                            <a href="../pages/data-attributes.html">Données HTML vers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-grades.html">Projet : Le bulletin semestriel</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts avancés</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/dom.html">Manipulation du DOM</a>
-                        </li>
-                        <li>
-                            <a href="../pages/events.html">Gestion des événements</a>
-                        </li>
-                        <li>
-                            <a href="../pages/timers.html">Timers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/server.html">Requêtes serveur</a>
-                        </li>
-                        <li>
-                            <a href="../pages/forms.html">Formulaires dynamiques</a>
-                        </li>
-                        <li>
-                            <a href="../pages/storage.html">Stockage des données</a>
-                        </li>
-                        <li>
-                            <a href="../pages/errors.html">Gestion des erreurs</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-stocks.html">Projet : La gestion des stocks</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul class="navbar"></ul>
         </nav>
     </header>
 
@@ -160,16 +70,40 @@
          MAIN
     **************************************************************************************************************** -->
     <main>
-
         <!-- content section
              ======================================================================================================= -->
         <section id="get-data">
             <h2>Récupérer les données d'un formulaire</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Pour récupérer les données d'un formulaire, on utilise l'événement<span class="comment"> submit </span>
+                        et l'objet<span class="comment"> FormData</span>.
+                    </p>
+                    <ul>
+                        <li>Exemple de récupération des données :
+                            <pre class="html"><code>&lt;form id="monFormulaire"&gt;
+    &lt;input type="text" name="nom" /&gt;
+    &lt;input type="email" name="email" /&gt;
+    &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                            <pre class="js"><code><span class="word">const</span> form = document.<span class="function">querySelector</span>(<span class="text">"#monFormulaire"</span>);
 
+form.<span class="function">addEventListener</span>(<span class="text">"submit"</span>, (e) => {
+    e.<span class="function">preventDefault</span>();
+    <span class="word">const</span> formData = <span class="word">new</span> <span class="function">FormData</span>(form);
+
+    <span class="word">const</span> nom = formData.<span class="function">get</span>(<span class="text">"nom"</span>);
+    <span class="word">const</span> email = formData.<span class="function">get</span>(<span class="text">"email"</span>);
+
+    console.<span class="function">log</span>(nom, email);
+});</code></pre>
+                        </li>
+                        <li>
+                            <span class="comment">preventDefault() </span>empêche le rechargement de la page.
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -186,10 +120,69 @@
         <section id="validate">
             <h2>Valider une saisie utilisateur</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        La validation permet de vérifier que les données saisies par l'utilisateur sont conformes
+                        aux attentes.
+                    </p>
+                    <ul>
+                        <li>Exemple de validation d'un email :
+                            <pre class="js"><code><span class="word">function</span> <span class="function">validerEmail</span>(email) {
+    <span class="word">const</span> regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    <span class="word">return</span> regex.<span class="function">test</span>(email);
+}
 
+<span class="word">if</span> (!<span class="function">validerEmail</span>(email)) {
+    console.<span class="function">log</span>(<span class="text">"Email invalide"</span>);
+}</code></pre>
+                        </li>
+                        <li>
+                            On peut aussi utiliser l'API<span class="comment"> Constraint Validation </span>du HTML5 :
+
+                            <pre class="html"><code>&lt;form id="monFormulaire" novalidate&gt;
+    &lt;div&gt;
+        &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+        &lt;input type="text" id="nom" name="nom" required minlength="2" maxlength="50"&gt;
+        &lt;div class="error-message" id="nom-error"&gt;&lt;/div&gt;
+    &lt;/div>
+
+    &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+                            <pre class="css"><code>.error-message {
+    color: red;
+}
+
+input:invalid {
+    border: 1px solid red;
+}
+
+input:valid {
+    border: 1px solid green;
+}
+</code></pre>
+                            <pre class="js"><code><span class="word">const</span> form = document.<span class="function">querySelector</span>(<span class="text">"#monFormulaire"</span>);
+
+form.<span class="function">addEventListener</span>(<span class="text">"submit"</span>, (e) => {
+    e.<span class="function">preventDefault()</span>;
+
+    <span class="comment">// Vérification de la validité</span>
+    <span class="word">const</span> nomValid = form.elements.nom.<span class="function">checkValidity</span>();
+    <span class="word">const</span> errorElement = document.<span class="function">querySelector</span>(<span class="text">"#nom-error"</span>);
+
+    <span class="comment">// Message d'erreur afiché ou non</span>
+    <span class="word">if</span> (nomValid) {
+        errorElement.textContent = <span class="text">""</span>; <span class="comment">&nbsp;// pas de message</span>
+        form.<span class="function">submit</span>(); <span class="comment">&nbsp;// envoi du formulaire</span>
+    } <span class="word">else</span> {
+        errorElement.textContent = form.elements.nom.validationMessage;
+        <span class="comment">// message natif ; on peut remplacer par une chaîne</span>
+    }
+};</code></pre>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -206,10 +199,31 @@
         <section id="ajax">
             <h2>Envoyer un formulaire sans recharger la page</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Pour envoyer un formulaire sans recharger la page, on utilise<span class="comment"> fetch </span>
+                        avec les données du formulaire.
+                    </p>
+                    <ul>
+                        <li>Exemple d'envoi de données :
+                            <pre class="js"><code>form.<span class="function">addEventListener</span>(<span class="text">"submit"</span>, <span class="word">async</span> (e) => {
+    e.<span class="function">preventDefault</span>();
+    <span class="word">const</span> formData = <span class="word">new</span> <span class="function">FormData</span>(form);
 
+    <span class="word">const</span> response = <span class="word">await</span> <span class="function">fetch</span>(<span class="text">"/api/submit"</span>, {
+        method: <span class="text">"POST"</span>,
+        body: formData,
+    });
+
+    <span class="word">const</span> result = <span class="word">await</span> response.<span class="function">json</span>();
+    console.<span class="function">log</span>(result);
+});</code></pre>
+                        </li>
+                        <li>
+                            <span class="comment">fetch </span>permet d'envoyer les données au serveur et de recevoir une réponse.
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -226,10 +240,25 @@
         <section id="display-errors">
             <h2>Afficher les messages d'erreur</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Pour afficher les erreurs de validation, on peut ajouter des messages dans le DOM.
+                    </p>
+                    <ul>
+                        <li>Exemple d'affichage d'erreur :
+                            <pre class="js"><code><span class="word">if</span> (!<span class="function">validerEmail</span>(email)) {
+    <span class="word">const</span> errorElement = document.<span class="function">createElement</span>(<span class="text">"p"</span>);
+    errorElement.textContent = <span class="text">"Email invalide"</span>;
+    errorElement.classList.<span class="function">add</span>(<span class="text">"error"</span>);
 
+    form.<span class="function">appendChild</span>(errorElement);
+}</code></pre>
+                        </li>
+                        <li>
+                            On peut ainsi utiliser des classes CSS pour styliser les messages d'erreur.
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -246,10 +275,26 @@
         <section id="errors">
             <h2>Erreurs fréquentes</h2>
             <div class="layout">
-
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-
+                    <ul>
+                        <li>
+                            Oublier<span class="comment"> preventDefault() </span>sur l'événement<span class="comment"> submit </span>
+                            :<span class="error"> la page se recharge</span>.
+                        </li>
+                        <li>
+                            Ne pas valider les données côté serveur
+                            :<span class="error"> risque de sécurité</span>.
+                        </li>
+                        <li>
+                            Afficher les erreurs sans les effacer avant
+                            :<span class="error"> les erreurs s'accumulent</span>.
+                        </li>
+                        <li>
+                            Oublier de gérer les erreurs de<span class="comment"> fetch </span>
+                            :<span class="error"> les erreurs ne sont pas visibles</span>.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -259,15 +304,21 @@
         <section id="exercises">
             <h2>Exercices</h2>
             <ol>
-
                 <!-- exercise -------------------------------------------------------------------------------------- -->
                 <li>
                     <h3>Lire du code : </h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <p>Que fait le code suivant ?</p>
+                            <pre class="js"><code>const form = document.querySelector("#monFormulaire");
 
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const nom = formData.get("nom");
+
+    console.log(nom);
+});</code></pre>
                         </div>
                     </div>
                 </li>
@@ -278,10 +329,18 @@
                 <li>
                     <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <pre class="js"><code>function validerEmail(email) {
+    return email.includes("@");
+}
 
+form.addEventListener("submit", (e) => {
+    const email = document.querySelector("#email").value;
+
+    if (!validerEmail(email)) {
+        console.log("Email invalide");
+    }
+});</code></pre>
                         </div>
                     </div>
                 </li>
@@ -292,13 +351,15 @@
                 <li>
                     <h3>Écrire du code : coder le programme suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-
+                            <ul>
+                                <li>Créer un formulaire avec un champ pour le nom et un champ pour l'email.</li>
+                                <li>Valider que le nom n'est pas vide et que l'email est valide.</li>
+                                <li>Afficher un message d'erreur si la validation échoue.</li>
+                                <li>Envoyer les données du formulaire à une API fictive avec<span class="comment"> fetch</span>.</li>
+                            </ul>
                         </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__video">
                             <video controls controlsList="nodownload" preload="metadata">
                                 <source src="../assets/storage/ex3.mp4" type="video/mp4">
@@ -309,6 +370,7 @@
             </ol>
         </section>
     </main>
+
 
     <!-- ***************************************************************************************************************
          FOOTER

@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
     <title>Gestion des événements</title>
 </head>
+
 <body>
 
     <!-- ***************************************************************************************************************
@@ -24,99 +26,7 @@
         <!-- navbar
              ======================================================================================================= -->
         <nav>
-            <ul class="navbar">
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <a id="navbar__home" href="../index.html">
-                        <i class="bi bi-house-fill"></i>Accueil
-                    </a>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts de base</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/intro.html">Introduction</a>
-                        </li>
-                        <li>
-                            <a href="../pages/variables.html">Variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/manipulate.html">Manipulation de variables</a>
-                        </li>
-                        <li>
-                            <a href="../pages/conditions.html">Structures conditionnelles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/loops.html">Boucles</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-calc.html">Projet : La calculatrice</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts intermédiaires</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/functions.html">Fonctions</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays.html">Tableaux : bases</a>
-                        </li>
-                        <li>
-                            <a href="../pages/objects.html">Objets JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/strings.html">Chaînes de caractères</a>
-                        </li>
-                        <li>
-                            <a href="../pages/arrays-2.html">Tableaux : avancé</a>
-                        </li>
-                        <li>
-                            <a href="../pages/data-attributes.html">Données HTML vers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-grades.html">Projet : Le bulletin semestriel</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- navbar submenu -------------------------------------------------------------------------------- -->
-                <li class="navbar__element">
-                    <h2>Concepts avancés</h2>
-                    <ul class="navbar__submenu">
-                        <li>
-                            <a href="../pages/dom.html">Manipulation du DOM</a>
-                        </li>
-                        <li>
-                            <a href="../pages/events.html">Gestion des événements</a>
-                        </li>
-                        <li>
-                            <a href="../pages/timers.html">Timers JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../pages/server.html">Requêtes serveur</a>
-                        </li>
-                        <li>
-                            <a href="../pages/forms.html">Formulaires dynamiques</a>
-                        </li>
-                        <li>
-                            <a href="../pages/storage.html">Stockage des données</a>
-                        </li>
-                        <li>
-                            <a href="../pages/errors.html">Gestion des erreurs</a>
-                        </li>
-                        <li>
-                            <a href="../pages/project-stocks.html">Projet : La gestion des stocks</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul class="navbar"></ul>
         </nav>
     </header>
 
@@ -169,7 +79,54 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Un événement est une action détectée par le navigateur : clic, touche clavier, saisie dans un champ,
+                        déplacement de la souris, envoi d’un formulaire, etc.
+                        Pour réagir à un événement, on utilise<span class="comment"> addEventListener</span>.
+                    </p>
 
+                    <ul>
+                        <li>Structure de base :
+                            <pre class="js"><code><span class="word">const</span> btn = document.<span class="function">querySelector</span>(<span class="text">"#btn"</span>);
+
+btn.<span class="function">addEventListener</span>(<span class="text">"click"</span>, () => {
+    console.<span class="function">log</span>(<span class="text">"Clique !"</span>);
+});</code></pre>
+                        </li>
+
+                        <li>Événements associés à la souris :
+                            <ul>
+                                <li><span class="comment">"click"</span></li>
+                                <li><span class="comment">"dblclick"</span></li>
+                                <li><span class="comment">"mouseenter"</span></li>
+                                <li><span class="comment">"mouseleave"</span></li>
+                            </ul>
+                        </li>
+
+                        <li>Événements associés au clavier :
+                            <ul>
+                                <li><span class="comment">"keydown"</span></li>
+                                <li><span class="comment">"keyup"</span></li>
+                            </ul>
+                        </li>
+
+                        <li>Événements associés à un formulaire :
+                            <ul>
+                                <li><span class="comment">"input"</span></li>
+                                <li><span class="comment">"change"</span></li>
+                                <li><span class="comment">"submit"</span></li>
+                            </ul>
+                        </li>
+
+                        <li>Il est parfois préférable de passer par une fonction nommée (utile si on veut retirer
+                            l’écouteur plus tard par exemple) :
+                            <pre class="js"><code><span class="word">function</span> direBonjour() {
+    console.<span class="function">log</span>(<span class="text">"Bonjour"</span>);
+}
+
+btn.<span class="function">addEventListener</span>(<span class="text">"click"</span>, <span class="function">direBonjour</span>);</code></pre>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -189,7 +146,35 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Quand un événement se produit, le navigateur appelle la fonction associée et lui fournit un
+                        objet<span class="comment"> Event </span>(souvent noté<span class="comment"> e</span>).
+                        Cet objet contient des informations sur ce qui s’est passé.
+                    </p>
 
+                    <pre class="js"><code><span class="word">const</span> btn = document.<span class="function">querySelector</span>(<span class="text">"#btn"</span>);
+
+btn.<span class="function">addEventListener</span>(<span class="text">"click"</span>, (e) => {
+    console.<span class="function">log</span>(e);
+});</code></pre>
+
+                    <ul>
+                        <li><span class="comment">e.type </span>: type d’événement (ex : <span class="comment">"click"</span>)</li>
+                        <li><span class="comment">e.target </span>: élément sur lequel l’événement a eu lieu</li>
+                        <li><span class="comment">e.currentTarget </span>: élément qui écoute l’événement</li>
+                    </ul>
+
+                    <pre class="js"><code><span class="word">btn</span>.<span class="function">addEventListener</span>(<span class="text">"click"</span>, (e) => {
+    console.<span class="function">log</span>(e.type);  <span class="comment">&nbsp;// "click"</span>
+    console.<span class="function">log</span>(e.target); <span class="comment">&nbsp;// l'élément cliqué</span>
+    console.<span class="function">log</span>(e.currentTarget); <span class="comment">&nbsp;// l'élément qui écoute</span>
+});</code></pre>
+
+                    <p>
+                        <span class="comment">target </span>peut être un enfant, tandis
+                        que<span class="comment"> currentTarget</span> est toujours l’élément sur lequel
+                        l’écouteur a été placé.
+                    </p>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -209,7 +194,25 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Quand on clique sur un élément, l’événement ne concerne pas seulement cet élément : il
+                        "remonte" dans l’arbre du DOM (du plus profond vers les parents). C’est la propagation (bubbling).
+                    </p>
 
+                    <pre class="html"><code>&lt;div id="zone"&gt;
+    &lt;button id="btn"&gt;Bouton&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+                    <pre class="js"><code><span class="word">const</span> zone = document.<span class="function">querySelector</span>(<span class="text">"#zone"</span>);
+<span class="word">const</span> btn = document.<span class="function">querySelector</span>(<span class="text">"#btn"</span>);
+
+zone.<span class="function">addEventListener</span>(<span class="text">"click"</span>, () => { <span class="comment">&nbsp;// déclenchée en deuxième</span>
+    console.<span class="function">log</span>(<span class="text">"zone"</span>);
+});
+
+btn.<span class="function">addEventListener</span>(<span class="text">"click"</span>, () => { <span class="comment">&nbsp;// déclenchée en premier</span>
+    console.<span class="function">log</span>(<span class="text">"bouton"</span>);
+});</code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -229,7 +232,41 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
+                    <p>
+                        Certains éléments ont un comportement par défaut : un lien ouvre une page, un formulaire
+                        recharge la page, etc. On peut contrôler cela avec<span class="comment"> preventDefault </span>
+                        et<span class="comment"> stopPropagation</span>.
+                    </p>
 
+                    <ul>
+                        <li>Empêcher le comportement par défaut :
+                            <pre class="js"><code><span class="word">const</span> lien = document.<span class="function">querySelector</span>(<span class="text">"a"</span>);
+
+lien.<span class="function">addEventListener</span>(<span class="text">"click"</span>, (e) => {
+    e.<span class="function">preventDefault</span>();
+    console.<span class="function">log</span>(<span class="text">"Lien bloqué"</span>);
+});</code></pre>
+                        </li>
+
+                        <li>Stopper la propagation :
+                            <pre class="js"><code><span class="word">const</span> zone = document.<span class="function">querySelector</span>(<span class="text">"#zone"</span>);
+<span class="word">const</span> btn = document.<span class="function">querySelector</span>(<span class="text">"#btn"</span>);
+
+zone.<span class="function">addEventListener</span>(<span class="text">"click"</span>, () => {
+    console.<span class="function">log</span>(<span class="text">"zone"</span>);
+});
+
+btn.<span class="function">addEventListener</span>(<span class="text">"click"</span>, (e) => {
+    e.<span class="function">stopPropagation</span>();
+    console.<span class="function">log</span>(<span class="text">"bouton seul"</span>);
+});</code></pre>
+                        </li>
+                    </ul>
+
+                    <p>
+                        À utiliser avec parcimonie :<span class="comment"> stopPropagation </span>peut rendre le code
+                        difficile à comprendre si plusieurs écouteurs sont impliqués.
+                    </p>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -249,7 +286,24 @@
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-
+                    <ul>
+                        <li>
+                            Exécuter la fonction au lieu de la passer
+                            :<span class="error"> l’événement ne fonctionne pas</span>.
+                        </li>
+                        <li>
+                            Oublier que<span class="comment"> e.target </span>peut être un enfant
+                            :<span class="error"> mauvais élément manipulé</span>.
+                        </li>
+                        <li>
+                            Mettre un écouteur sur un élément<span class="comment"> null </span>
+                            :<span class="error"> erreur si la sélection DOM est mauvaise</span>.
+                        </li>
+                        <li>
+                            Utiliser trop de<span class="comment"> stopPropagation </span>
+                            :<span class="error"> logique difficile à suivre</span>.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -262,12 +316,23 @@
 
                 <!-- exercise -------------------------------------------------------------------------------------- -->
                 <li>
-                    <h3>Lire du code : </h3>
+                    <h3>Lire du code :</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <pre class="html"><code>&lt;div id="zone"&gt;
+    &lt;button id="btn"&gt;OK&lt;/button&gt;
+&lt;/div&gt;</code></pre>
 
+                            <pre class="js"><code>const zone = document.querySelector("#zone");
+const btn = document.querySelector("#btn");
+
+zone.addEventListener("click", () => {
+    console.log("zone");
+});
+
+btn.addEventListener("click", () => {
+    console.log("btn");
+});</code></pre>
                         </div>
                     </div>
                 </li>
@@ -278,10 +343,14 @@
                 <li>
                     <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
                     <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
+                            <pre class="html"><code>&lt;button id="btn"&gt;Clique&lt;/button&gt;</code></pre>
 
+                            <pre class="js"><code>const btn = document.querySelectorAll("#btn");
+
+btn.addEventListener("click", () => {
+    log("OK");
+});</code></pre>
                         </div>
                     </div>
                 </li>
@@ -293,12 +362,21 @@
                     <h3>Écrire du code : coder le programme suivant.</h3>
                     <div class="layout">
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__text">
-
+                            <ul>
+                                <li>Créer une variable<span class="comment"> compteur </span>initialisée à 0.</li>
+                                <li>Ajouter un écouteur<span class="comment"> click </span>sur un bouton.</li>
+                                <li>À chaque clic :
+                                    <ul>
+                                        <li>incrémenter le compteur,</li>
+                                        <li>afficher sa valeur dans la console,</li>
+                                        <li>mettre à jour le texte d’un élément de la page pour afficher le compteur.</li>
+                                    </ul>
+                                </li>
+                                <li>Si le compteur dépasse 10, ajouter une classe<span class="comment"> warning</span>.</li>
+                            </ul>
                         </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
                         <div class="layout__video">
                             <video controls controlsList="nodownload" preload="metadata">
                                 <source src="../assets/events/ex3.mp4" type="video/mp4">
